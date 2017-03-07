@@ -1,0 +1,26 @@
+{
+  "name": "bazza",
+  "version": "1.0.0",
+  "description": "A Locally open tab manager for",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stagfoo/Bazza.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stagfoo/Bazza/issues"
+  },
+  "homepage": "https://github.com/stagfoo/Bazza#readme",
+  "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.4.0",
+    "babel-preset-es2015": "^6.22.0",
+    "webpack": "^2.2.1"
+  }
+}

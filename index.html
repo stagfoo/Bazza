@@ -1,0 +1,38 @@
+<html>
+    <head></head>
+    <body>
+        <div id="header"></div>
+        <main>
+
+        </main>
+        <style>
+        main {
+            display:block;
+            width:100%;
+        }
+        .container {
+    border: 1px dashed #ccc;
+    position: relative;
+}
+
+.container > div {
+    background: #CCC;
+    height: 100px;
+    position: absolute;
+    width: 80px;
+}
+
+/*.container > div[data-ss-colspan='2'] { width: 170px; }*/
+
+.container .ss-placeholder-child {
+    background: transparent;
+    border: 1px dashed red;
+}
+        </style>
+        <script src="jquery.js"></script>
+        <script src="jquery-ui.js"></script>
+        <script src="grid.js"></script>
+        <script src="index.js"></script>
+
+    </body>
+</html>
