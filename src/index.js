@@ -1,29 +1,71 @@
 import shapeshift from './grid';
 import './jquery-ui'
-$.ajax({
-  url: 'https://www.google.co.jp/?gfe_rd=cr&ei=IWK-WJuaCoX-8wfXn7DACA&gws_rd=ssl',
-  async: true,
-  success: function(data) {
-    var matches = data.match(/<title>(.*?)<\/title>/);
-    alert(matches[0]);
-  }
-});
+
+function createChild(css, obj) {
+    const tabTag = $("<div>", { "class": css });
+    const wrapper = $("<a>", { "class": "wrapper","href": obj.url  });
+    wrapper.append($("<img>", 
+        { 
+            "src": obj.favIconUrl,
+             "height":"30px",
+             "width":"30px"
+             
+        }));
+    wrapper.append($("<span contenteditable='true'>"+obj.title+"</span>"));
+    tabTag.append(wrapper);
+    return tabTag;
+}
+
+
+
+function createRow(extraClass){
+    return $("<div>", { "class": `container ${extraClass}` });
+}
+
+
+function createTabs(){
+// Do NOT forget that the method is ASYNCHRONOUS    
+chrome.tabs.query({
+    lastFocusedWindow: true     // In the current window
+    }, function(tabs) {
+        const container = createRow('tabs');
+        
+        tabs.map(function(tab, index) {
+            const tabTag = createChild('child tab', tab);
+            container.append(tabTag)
+        });
+
+        $("main").append(container);
+    });
+}
+createTabs();
 
 $.getJSON("index.json", function (json) {
-    console.log(json); // this will show the info it in firebug console
     Object.keys(json).map(function(key, index) {
-        // json[key]
-        var container = $("<div>", { "class": "container" });
+        var container = createRow('group');
         if (json[key].length > 0) {
-            json[key].map(function (key, index) {
-                container.append($("<div>", { "class": "child" }))
+            container.append($("<h1>"+key+"</h1>"))
+            
+            json[key].map(function (data, index) {
+                const child = createChild('child',data);
+                container.append(child);
             });
         }
         $("main").append(container);
 
     });
      $(".container").shapeshift({
+        selector: "div",
          minColumns: 3,
-        colWidth: 80
+        colWidth: 200
     });
 });
+function createJson(){
+    const groups = document.getElementsByClassName('group');
+    for (var i = 0; i < groups.length; ++i) {
+    const group = groups[i];   
+    const groupObj = {};
+    groupObj.name = group.children[0];
+    }
+}
+createJson();

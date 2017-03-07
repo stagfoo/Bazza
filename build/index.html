@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <title>Bazza, your tab buddy</title>
+        <link href="https://fonts.googleapis.com/css?family=Asap:400,700" rel="stylesheet">
+    </head>
+    <body>
+        <div id="header"></div>
+        <main>
+
+        </main>
+        <style>
+        body {
+            margin: 0px;
+            padding:0px;
+            font-family: 'Asap', sans-serif;
+
+        }
+        main {
+            display:block;
+            width:100%;
+        }
+        h1 {
+            clear:both;
+            margin:1em;
+            text-transform: capitalize;
+        }
+        .container {
+            border-bottom: 1px dashed #ccc;
+            position: relative;
+        }
+         .container.tabs {
+            border-bottom: 0;
+             
+            background: #efefef;
+        }
+        .child .wrapper {
+            margin:1em;
+            display: inline-block;
+            text-decoration: none;
+            text-transform: capitalize;
+            color: #282828;
+        }
+        .child span {
+            line-height: 30px;
+            vertical-align: middle;
+            overflow: hidden;
+            max-width: 10ch;
+        }
+        .child img {
+            margin-right:1em;
+            float:left;
+        }
+        .container .child {
+            background: #efefef;
+            height: 100px;
+            position: absolute;
+            width: 200px;
+             border-radius: 5px;
+            overflow: hidden;
+            box-shadow: none;
+        }
+        .container.tabs .child {
+            background:#fff;
+            border:1px solid #ececec;            
+        }
+       
+        </style>
+        <script src="bundle.js"></script>
+
+    </body>
+</html>

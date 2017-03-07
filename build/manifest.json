@@ -1,0 +1,13 @@
+{
+  "version": "0.0.0",
+  "name": "Bazza",
+  "manifest_version": 2,
+  "description": "a local bookmark manager, with passable files",
+  "browser_action": {
+    "default_title": "React Chrome Extension Example"
+  },
+  "chrome_url_overrides" : {
+        "newtab": "index.html"
+    },
+  "permissions": [ "contextMenus", "management", "tabs", "storage", "<all_urls>" ]
+}

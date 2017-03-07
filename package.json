@@ -24,6 +24,7 @@
     "webpack": "^2.2.1"
   },
   "dependencies": {
+    "fairybread": "^1.0.12",
     "jquery": "^3.1.1",
     "url-info-scraper": "^0.1.2"
   }
