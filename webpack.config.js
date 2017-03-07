@@ -1,9 +1,16 @@
 const path = require('path');
 const webpack = require('webpack');
+var $ = require("jquery");
+
+const plugins = [
+    new webpack.ProvidePlugin({
+      'window.jQuery': '$'
+    })
+  ]
 module.exports = {
   entry: './src/index.js',
   output: {
-    filename: 'bundle.js'
+    filename: './build/bundle.js'
   },
   module: {
     rules: [
@@ -17,4 +24,16 @@ module.exports = {
       },
     ],
   },
+   plugins: [
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery",
+            'window.jQuery': 'jquery'
+        }),
+    ],
+    resolve: {
+      alias: {
+          'jquery': path.join(__dirname, 'node_modules/jquery/dist/jquery'),
+      }
+    }
 }
