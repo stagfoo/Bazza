@@ -1,14 +1,14 @@
 {
     "group1": [
-        {"name": "testing1"},
-        {"name": "testing2"},
-        {"name": "testing3"},
+        {"name": "testing1","url":"http://google.com"},
+        {"name": "testing2","url":"http://google.com"},
+        {"name": "testing3","url":"http://google.com"},
         {"name": "testing4"},
         {"name": "testing5"}
     ],
     "group2": [
-        {"name": "testing1"},
-        {"name": "testing2"},
+        {"name": "testing1","url":"http://google.com"},
+        {"name": "testing2","url":"http://google.com"},
         {"name": "testing3"},
         {"name": "testing4"},
         {"name": "testing5"}

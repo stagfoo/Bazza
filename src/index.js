@@ -61,14 +61,22 @@ $.getJSON("index.json", function (json) {
     });
 });
 
-function createJson(){
+function createJson() {
+    let result = {};
     const groups = document.getElementsByClassName('group');
     for (var i = 0; i < groups.length; ++i) {
-    const group = groups[i];
-    const groupObj = {};
-    groupObj.name = group.children[0];
+        const group = groups[i];
+        const name = group.children[0].innerHTML;
+        console.log(group.children[0].innerHTML);
+        result[name] = {};
+        for (var j = 1; j < group.children.length; ++j) {
+            console.log(group.children[j].childNodes[0].href);
+        }
     }
+    console.log(result);
 }
+createJson();
+
 function save(object) {
     chrome.storage.local.set(object);
 }
