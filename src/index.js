@@ -1,65 +1,49 @@
-import shapeshift from './grid';
-import './jquery-ui'
+import shapeshift from './libs/grid';
+import './libs/jquery-ui'
+import { createRow, createTabs, createMarks } from './elements/row';
 
-function createChild(css, obj) {
-    const tabTag = $("<div>", { "class": css });
-    const wrapper = $("<a>", { "class": "wrapper","href": obj.url  });
-    wrapper.append($("<img>",
-        {
-            "src": obj.favIconUrl,
-             "height":"30px",
-             "width":"30px"
-
-        }));
-    wrapper.append($("<span contenteditable='true'>"+obj.title+"</span>"));
-    tabTag.append(wrapper);
-    return tabTag;
+function load(callback){
+    chrome.storage.local.get(null, callback)
 }
-
-
-
-function createRow(extraClass){
-    return $("<div>", { "class": `container ${extraClass}` });
+function loadByKey(key){
+    chrome.storage.local.get(key, function (result) {
+        return result;
+  });
 }
-
-
-function createTabs(){
-// Do NOT forget that the method is ASYNCHRONOUS
-chrome.tabs.query({
-    lastFocusedWindow: true     // In the current window
-    }, function(tabs) {
-        const container = createRow('tabs');
-
-        tabs.map(function(tab, index) {
-            const tabTag = createChild('child tab', tab);
-            container.append(tabTag)
-        });
-
-        $("main").append(container);
-    });
+function init(){
+    createTabs();
+    load(function (json){
+            createMarks(json);
+            dragNdrop();    
+            createJson();           
+            // createFromJson();
+    });  
 }
-createTabs();
-
-$.getJSON("index.json", function (json) {
-    Object.keys(json).map(function(key, index) {
-        var container = createRow('group');
-        if (json[key].length > 0) {
-            container.append($("<h1>"+key+"</h1>"))
-
-            json[key].map(function (data, index) {
-                const child = createChild('child',data);
-                container.append(child);
+function createFromJson(){
+    $.getJSON("index.json", function (json) {
+        chrome.storage.local.set(json, function() {
+            console.log('Settings saved');
+            createTabs();
+            createMarks(json);
+            dragNdrop();            
             });
-        }
-        $("main").append(container);
+     }); 
+}
 
-    });
+
+function dragNdrop(){
      $(".container").shapeshift({
         selector: "div",
          minColumns: 3,
         colWidth: 200
     });
-});
+     $(".container").on( "ss-added", function(e) {
+        chrome.storage.local.clear()
+        chrome.storage.local.set(createJson(), function() {
+            console.log('Settings saved');
+        });
+    });
+}
 
 function createJson() {
     let result = {};
@@ -67,26 +51,19 @@ function createJson() {
     for (var i = 0; i < groups.length; ++i) {
         const group = groups[i];
         const name = group.children[0].innerHTML;
-        console.log(group.children[0].innerHTML);
-        result[name] = {};
+        const marks = [];
         for (var j = 1; j < group.children.length; ++j) {
-            console.log(group.children[j].childNodes[0].href);
+        const mark = {
+                "title": group.children[j].childNodes[0].childNodes[1].innerHTML,
+                "favIconUrl": group.children[j].childNodes[0].childNodes[0].src,
+                "url": group.children[j].childNodes[0].href,
+            }; 
+        marks.push(mark);         
         }
+        result[name] = marks;        
     }
-    console.log(result);
+    return result;
 }
-createJson();
 
-function save(object) {
-    chrome.storage.local.set(object);
-}
-function load(){
-    chrome.storage.local.get(null, function (result) {
-        return result;
-  });
-}
-function loadByKey(key){
-    chrome.storage.local.get(key, function (result) {
-        return result;
-  });
-}
+// RENDER
+init();

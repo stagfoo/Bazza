@@ -1,16 +1,16 @@
 {
     "group1": [
-        {"name": "testing1","url":"http://google.com"},
-        {"name": "testing2","url":"http://google.com"},
-        {"name": "testing3","url":"http://google.com"},
-        {"name": "testing4"},
-        {"name": "testing5"}
+        {"title": "pom pom logo | Niice", "favIconUrl":"https://niice.co/favicon-32x32.png","url":"https://niice.co/search/pom%20pom%20logo"},
+        {"title": "testing2"},
+        {"title": "testing3"},
+        {"title": "testing4"},
+        {"title": "testing5"}
     ],
     "group2": [
-        {"name": "testing1","url":"http://google.com"},
-        {"name": "testing2","url":"http://google.com"},
-        {"name": "testing3"},
-        {"name": "testing4"},
-        {"name": "testing5"}
+        {"title": "testing1"},
+        {"title": "testing2"},
+        {"title": "testing3"},
+        {"title": "testing4"},
+        {"title": "testing5"}
     ]
 }
