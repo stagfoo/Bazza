@@ -9,24 +9,49 @@
         <main>
 
         </main>
-        <button id="createRow" class="fab">+</button>
+        
         <aside>
 
         </aside>
+        <div class="add-row">
+
+        <button id="createRow" class="fab">add a new row</button>
+        </div>
+        
         <style>
+            .add-row {
+             width:80vw;
+             text-align: center;
+             float:left;
+             position: fixed;
+             bottom:2em;
+            }
         button {
-            background-color: #eeaf38;
-            border-radius: 100%;
-            border: 0px;
-            font-size: 2em;
-            padding: 1em 1.2em;
-            font-weight: bold;
-            color: #fff;
-            line-height: 1em;
-            z-index: 9;
-            position: absolute;
-            bottom: 1em;
-            left: 1em;
+               color: #fff;
+    background-color: #28a745;
+    background-image: -webkit-linear-gradient(270deg, #34d058 0%, #28a745 90%);
+    background-image: linear-gradient(-180deg, #34d058 0%, #28a745 90%);
+        
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-repeat: repeat-x;
+    background-position: -1px -1px;
+    background-size: 110% 110%;
+    border: 1px solid rgba(27,31,35,0.2);
+    border-radius: 0.25em;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
         }
         body {
             margin: 0px;
@@ -36,15 +61,17 @@
         main {
             display: inline-block;
             float:left;
-            width:85vw;
+            width:80vw;
+            border-right: 1px solid #e1e4e8;
+            height: 100vh;
+            
         }
         aside {
-            width:14.5vw;
+            width:19vw;
             height:100vh;
             display: inline-block;
-            float:left;
+            float:right;
             background: #fff;
-            border-left: 1px solid #e1e4e8;
 
 
         }
@@ -107,13 +134,9 @@
         .container.tabs .child {
             padding:0px;
             text-align: left;
-            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fcfff4+0,e9e9ce+100 */
-            background: #fcfff4; /* Old browsers */
-            background: -moz-linear-gradient(top, #fcfff4 0%, #e9e9ce 100%); /* FF3.6-15 */
-            background: -webkit-linear-gradient(top, #fcfff4 0%,#e9e9ce 100%); /* Chrome10-25,Safari5.1-6 */
-            background: linear-gradient(to bottom, #fcfff4 0%,#e9e9ce 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#e9e9ce',GradientType=0 ); /* IE6-9 */
-            border:1px solid #ececec;
+            background-color: #fafbfc;
+            border: 1px solid #e1e4e8;
+            border-radius: 3px;
             height:60px;
             display:none;
         }

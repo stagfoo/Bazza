@@ -1,6 +1,12 @@
 import createChild from './child';
 import { createJson } from '../index';
 
+export function makeId(){
+        let text = "group_";
+        const possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+	    [...Array(20)].map((data,key) => { text += possible.charAt(Math.floor(Math.random() * possible.length)); });
+        return text;
+    };
 
 export function dragNdrop(){
      $("main .container").shapeshift({
@@ -17,22 +23,32 @@ export function dragNdrop(){
      $(".container").on( "ss-added", function(e) {
         chrome.storage.local.clear();
         chrome.storage.local.set(createJson(), function() {
-            console.log('Settings saved');
+            console.info('Settings saved');
         });
     });
 }
 
-export function createRow(extraClass, type){
-    const container =  $("<div>", { "class": `container ${extraClass}` });
-    if (type === true){
-        return container
-    } else {
-        container.append($("<h1 contenteditable='true'>untitled</h1>"))
-        $("main").append(container);
-    }
+export function createControls(title,id) {
+    const controls = $("<span>", { "class": `controls` });
+    const h1 = $("<h1 contenteditable='true' data-type='title'>"+title+"</h1>");
+    const close = $("<button>", { "class": `delete-row`,'data-id':id });
+    controls.append(h1);
+    controls.append(close);
+    return controls;    
+}
+
+
+export function createRow(extraClass, title){
+    const id = makeId();
+    const container =  $("<div>", { 'id': id, "class": `container ${extraClass}`,'data-id':id });
+    const groupTitle = title ? title : "untitled"
+    container.append(createControls(groupTitle,id))
+    
+    return container
 }
 $('#createRow').on('click', function () {
-    createRow('group', false);
+    const container = createRow('group',false);
+    $("main").append(container);
     dragNdrop();
 });
 
@@ -40,11 +56,11 @@ export function createTabs(){
     chrome.tabs.query({
         lastFocusedWindow: true     // In the current window
         }, function(tabs) {
-            const container = createRow('tabs',true);
+            const container = createRow('tabs', null);
 
             tabs.map(function(tab, index) {
+                // console.log(tab)
                 const tabTag = createChild('child tab', tab);
-                console.log(tab);
                 container.append(tabTag)
             });
 
@@ -54,13 +70,13 @@ export function createTabs(){
 
 export function createMarks(json){
     // load(function (json) {
-    console.log(json);
+    console.log('json',json);
         Object.keys(json).map(function(key, index) {
-            var container = createRow('group',true);
-                if (json[key].length > 0) {
-                    container.append($("<h1 contenteditable='true'>"+key+"</h1>"))
-
-                    json[key].map(function (data, index) {
+            const group = json[key];
+            var container = createRow('group',group.name);
+                if (group.marks.length > 0) {
+                    group.marks.map(function (data, index) {
+                        console.log(data);
                         const child = createChild('child',data);
                         container.append(child);
                     });

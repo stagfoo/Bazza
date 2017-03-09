@@ -12,15 +12,11 @@ function loadByKey(key){
 }
 function init(){
     createTabs();
-    // createFromJson();
     load(function (json) {
-        // if (json === undefined) {
-        //     createFromJson();
-        // } else {
+      
             createMarks(json);
             dragNdrop();
             createJson();
-        // }
     });
 }
 export function createFromJson(){
@@ -39,21 +35,30 @@ export function createFromJson(){
 
 export function createJson() {
     let result = {};
-    const groups = document.getElementsByClassName('group');
-    for (var i = 0; i < groups.length; ++i) {
-        const group = groups[i];
-        const name = group.children[0].innerHTML;
+    // const groups = document.getElementsByClassName('group');
+    const groups = $('.group');
+    console.log(groups);
+    $.each( groups, function( key, group ) {
+        const children = $(group).find('.child');
+        const name = $(group).find('.controls h1').text();        
         const marks = [];
-        for (var j = 1; j < group.children.length; ++j) {
-        const mark = {
-                "title": group.children[j].childNodes[0].childNodes[1].innerHTML,
-                "favIconUrl": group.children[j].childNodes[0].childNodes[0].src,
-                "url": group.children[j].childNodes[0].href,
+        
+        console.log('parent',group);
+        console.log('childs',children);
+        $.each(children, function(key, child){
+             const mark = {
+                "title": $(child).find('span'),
+                "favIconUrl": $(child).find('img').attr('src'),
+                "url": $(child).find('a').attr('href'),
             };
-        marks.push(mark);
-        }
-        result[name] = marks;
-    }
+            marks.push(mark);
+        });
+        result[group.dataset.id] = {
+                                name:name,
+                                marks: marks
+                            };
+    });
+    console.log(result);
     return result;
 }
 

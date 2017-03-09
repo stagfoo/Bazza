@@ -1,2 +1,22 @@
-ma => 間
-te => 手
+function readJson(){
+    $.getJSON("index.json", function (json) {
+        Object.keys(json).map(function(key, index) {
+        var container = createRow('group');
+        if (json[key].length > 0) {
+            container.append($("<h1>"+key+"</h1>"))
+
+            json[key].map(function (data, index) {
+                const child = createChild('child',data);
+                container.append(child);
+            });
+        }
+        $("main").append(container);
+
+    });
+     $(".container").shapeshift({
+        selector: "div",
+         minColumns: 3,
+        colWidth: 200
+    });
+     });
+       
