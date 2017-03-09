@@ -8,7 +8,16 @@
         <main>
 
         </main>
+        <button id="createRow" class="fab">+</button>
+        <aside>
+
+        </aside>
         <style>
+        button {
+            background-color: pink;
+            height:40px;
+            width:40px;
+        }
         body {
             margin: 0px;
             padding:0px;
@@ -16,8 +25,17 @@
 
         }
         main {
-            display:block;
-            width:100%;
+            display: inline-block;
+            float:left;
+            width:88vw;
+        }
+        aside {
+            width:12vw;
+            height:100vh;
+            display: inline-block;
+            float:left;
+            background: #efefef;
+
         }
         h1 {
             clear: both;
@@ -26,7 +44,7 @@
             text-transform: capitalize;
             top: -1.5em;
             left: 0.5em;
-            
+
         }
         .container {
             border-bottom: 1px dashed #ccc;
@@ -36,8 +54,7 @@
         }
          .container.tabs {
             border-bottom: 0;
-             border-top:0px;
-            background: #efefef;
+            border-top:0px;
         }
         .child .wrapper {
             margin:1em;
@@ -67,14 +84,15 @@
         }
         .container.tabs .child {
             background:#fff;
-            border:1px solid #ececec;   
+            border:1px solid #ececec;
             height:50px;
-            display:none; 
+            display:none;
         }
          .container.tabs .child.tab{
-             display: inline-block;
+             display: block;
+             clear:both;
          }
-       
+
         </style>
         <script src="bundle.js"></script>
 

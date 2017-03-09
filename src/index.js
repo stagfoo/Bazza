@@ -1,6 +1,6 @@
 import shapeshift from './libs/grid';
 import './libs/jquery-ui'
-import { createRow, createTabs, createMarks } from './elements/row';
+import { createRow, createTabs, createMarks, dragNdrop } from './elements/row';
 
 function load(callback){
     chrome.storage.local.get(null, callback)
@@ -12,40 +12,32 @@ function loadByKey(key){
 }
 function init(){
     createTabs();
-    load(function (json){
+    // createFromJson();
+    load(function (json) {
+        // if (json === undefined) {
+        //     createFromJson();
+        // } else {
             createMarks(json);
-            dragNdrop();    
-            createJson();           
-            // createFromJson();
-    });  
+            dragNdrop();
+            createJson();
+        // }
+    });
 }
-function createFromJson(){
+export function createFromJson(){
     $.getJSON("index.json", function (json) {
         chrome.storage.local.set(json, function() {
             console.log('Settings saved');
             createTabs();
             createMarks(json);
-            dragNdrop();            
+            dragNdrop();
             });
-     }); 
+     });
 }
 
 
-function dragNdrop(){
-     $(".container").shapeshift({
-        selector: "div",
-         minColumns: 3,
-        colWidth: 200
-    });
-     $(".container").on( "ss-added", function(e) {
-        chrome.storage.local.clear()
-        chrome.storage.local.set(createJson(), function() {
-            console.log('Settings saved');
-        });
-    });
-}
 
-function createJson() {
+
+export function createJson() {
     let result = {};
     const groups = document.getElementsByClassName('group');
     for (var i = 0; i < groups.length; ++i) {
@@ -57,13 +49,14 @@ function createJson() {
                 "title": group.children[j].childNodes[0].childNodes[1].innerHTML,
                 "favIconUrl": group.children[j].childNodes[0].childNodes[0].src,
                 "url": group.children[j].childNodes[0].href,
-            }; 
-        marks.push(mark);         
+            };
+        marks.push(mark);
         }
-        result[name] = marks;        
+        result[name] = marks;
     }
     return result;
 }
+
 
 // RENDER
 init();

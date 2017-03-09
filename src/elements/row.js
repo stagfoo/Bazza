@@ -1,14 +1,46 @@
 import createChild from './child';
+import { createJson } from '../index';
 
-export function createRow(extraClass){
-    return $("<div>", { "class": `container ${extraClass}` });
+
+export function dragNdrop(){
+     $("main .container").shapeshift({
+        selector: "div",
+         minColumns: 3,
+        colWidth: 200
+     });
+    $("aside .tabs").shapeshift({
+        selector: "div",
+        minColumns: 1,
+         maxColumns: 1,
+        colWidth: 200
+    });
+     $(".container").on( "ss-added", function(e) {
+        chrome.storage.local.clear();
+        chrome.storage.local.set(createJson(), function() {
+            console.log('Settings saved');
+        });
+    });
 }
+
+export function createRow(extraClass, type){
+    const container =  $("<div>", { "class": `container ${extraClass}` });
+    if (type === true){
+        return container
+    } else {
+        container.append($("<h1 contenteditable='true'>untitled</h1>"))
+        $("main").append(container);
+    }
+}
+$('#createRow').on('click', function () {
+    createRow('group', false);
+    dragNdrop();
+});
 
 export function createTabs(){
     chrome.tabs.query({
         lastFocusedWindow: true     // In the current window
         }, function(tabs) {
-            const container = createRow('tabs');
+            const container = createRow('tabs',true);
 
             tabs.map(function(tab, index) {
                 const tabTag = createChild('child tab', tab);
@@ -16,14 +48,15 @@ export function createTabs(){
                 container.append(tabTag)
             });
 
-            $("main").prepend(container);
+            $("aside").prepend(container);
         });
 }
 
 export function createMarks(json){
     // load(function (json) {
+    console.log(json);
         Object.keys(json).map(function(key, index) {
-            var container = createRow('group');
+            var container = createRow('group',true);
                 if (json[key].length > 0) {
                     container.append($("<h1 contenteditable='true'>"+key+"</h1>"))
 
@@ -35,5 +68,5 @@ export function createMarks(json){
             $("main").append(container);
         });
     // });
-    
+
 }
