@@ -6,13 +6,13 @@ export function dragNdrop(){
      $("main .container").shapeshift({
         selector: "div",
          minColumns: 3,
-        colWidth: 200
+        colWidth: 300
      });
     $("aside .tabs").shapeshift({
         selector: "div",
         minColumns: 1,
          maxColumns: 1,
-        colWidth: 200
+        colWidth: 300
     });
      $(".container").on( "ss-added", function(e) {
         chrome.storage.local.clear();

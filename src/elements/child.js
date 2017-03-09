@@ -1,6 +1,6 @@
 export default function createChild(css, obj) {
     const tabTag = $("<div>", { "class": css });
-    const wrapper = $("<a>", { "class": "wrapper","href": obj.url  });
+    const wrapper = $("<a>", { "target":"_blank", "class": "wrapper","href": obj.url  });
     wrapper.append($("<img>",
         {
             "src": obj.favIconUrl,
