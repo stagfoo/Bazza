@@ -26,6 +26,7 @@
   "dependencies": {
     "fairybread": "^1.0.12",
     "jquery": "^3.1.1",
+    "primer-css": "^5.0.0",
     "url-info-scraper": "^0.1.2"
   }
 }
