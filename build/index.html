@@ -9,16 +9,71 @@
         <main>
 
         </main>
-        
+
         <aside>
 
         </aside>
         <div class="add-row">
 
-        <button id="createRow" class="fab">add a new row</button>
+        <button id="createRow" class="green">Add a new row</button>
         </div>
-        
+
         <style>
+            .tabs .controls {
+                background-color: #f1f8ff;
+                border-bottom: 1px solid #c8e1ff;
+            }
+            .controls {
+                top:-5em;
+                display: inline-block;
+                width:100%;
+                position: absolute;
+                padding:1em 0em;
+                overflow: hidden;
+                background-color: #fafbfc;
+                border-bottom:1px solid #e1e4e8;
+            }
+            .controls h1 {
+                margin: 5px 0em 0 0.5em;
+            }
+            .controls button {
+                float:right;
+                margin: 0 0.5em 0 0em;
+            }
+            button {
+            position: relative;
+            display: inline-block;
+            padding: 6px 12px;
+            font-size: 13px;
+            font-weight: bold;
+            line-height: 20px;
+            color: #333;
+            white-space: nowrap;
+            vertical-align: middle;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            background-color: #eee;
+            background-image: -webkit-linear-gradient(#fcfcfc, #eee);
+            background-image: linear-gradient(#fcfcfc, #eee);
+            border: 1px solid #d5d5d5;
+            border-radius: 3px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            }
+            .danger {
+                color:#900;
+            }
+            .danger:hover {
+                color: #fff;
+                background-color: #b33630;
+                background-image: -webkit-linear-gradient(#dc5f59, #b33630);
+                background-image: linear-gradient(#dc5f59, #b33630);
+                border-color: #cd504a;
+            }
             .add-row {
              width:80vw;
              text-align: center;
@@ -26,37 +81,35 @@
              position: fixed;
              bottom:2em;
             }
-        button {
-               color: #fff;
-    background-color: #28a745;
-    background-image: -webkit-linear-gradient(270deg, #34d058 0%, #28a745 90%);
-    background-image: linear-gradient(-180deg, #34d058 0%, #28a745 90%);
-        
-    display: inline-block;
-    padding: 6px 12px;
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 20px;
-    white-space: nowrap;
-    vertical-align: middle;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    background-repeat: repeat-x;
-    background-position: -1px -1px;
-    background-size: 110% 110%;
-    border: 1px solid rgba(27,31,35,0.2);
-    border-radius: 0.25em;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+        .green {
+            color: #fff;
+            background-color: #28a745;
+            background-image: -webkit-linear-gradient(270deg, #34d058 0%, #28a745 90%);
+            background-image: linear-gradient(-180deg, #34d058 0%, #28a745 90%);
+            display: inline-block;
+            padding: 6px 12px;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 20px;
+            white-space: nowrap;
+            vertical-align: middle;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            background-repeat: repeat-x;
+            background-position: -1px -1px;
+            background-size: 110% 110%;
+            border: 1px solid rgba(27,31,35,0.2);
+            border-radius: 0.25em;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
         }
         body {
             margin: 0px;
             padding:0px;
-            font-family: 'Asap', sans-serif;
         }
         main {
             display: inline-block;
@@ -64,10 +117,10 @@
             width:80vw;
             border-right: 1px solid #e1e4e8;
             height: 100vh;
-            
+
         }
         aside {
-            width:19vw;
+            width:19.95vw;
             height:100vh;
             display: inline-block;
             float:right;
@@ -76,27 +129,24 @@
 
         }
         h1 {
-            clear: both;
-            margin: 0;
-            position: absolute;
+            float:left;
             text-transform: capitalize;
-            top: -1.5em;
-            left: 0.5em;
 
         }
         .container {
+            margin-top: 5em;
             border-bottom: 1px solid #e1e4e8;
-
             position: relative;
             display: block;
-            border-top: 4em solid #fff;
+            /*border-top: 4em solid #fafbfc;*/
+            position: relative;
+            height:150px !important;
         }
          .container.tabs {
             border-bottom: 0;
             border-top:0px;
         }
         .child .wrapper {
-            /*margin:0.5em 0.5em;*/
             display: inline-block;
             text-decoration: none;
             text-transform: capitalize;
@@ -105,27 +155,25 @@
         .child span {
             line-height: 20px;
             overflow: hidden;
-            max-width: 90%;
-            width:100%;
-            display: block;
+            display: inline-block;
+            float:left;
+            width:130px;
 
         }
         .child img {
             margin-right:1em;
-            clear:both;
             border:1px solid #ccc;
             padding:0.5em;
-
-            border-radius: 100%;
+            border-radius: 3px;
             background:#fff;
-            box-shadow:0px 0px 10px rgba(0,0,0,0.2);
+            float:left;
+
         }
         .container .child {
             background: #efefef;
-            height: 100px;
             position: absolute;
             width: 200px;
-            padding: 32px;
+            padding: 10px;
             text-align: center;
             background-color: #fafbfc;
             border: 1px solid #e1e4e8;

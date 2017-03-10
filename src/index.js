@@ -13,7 +13,7 @@ function loadByKey(key){
 function init(){
     createTabs();
     load(function (json) {
-      
+
             createMarks(json);
             dragNdrop();
             createJson();
@@ -40,14 +40,14 @@ export function createJson() {
     console.log(groups);
     $.each( groups, function( key, group ) {
         const children = $(group).find('.child');
-        const name = $(group).find('.controls h1').text();        
+        const name = $(group).find('.controls h1').text();
         const marks = [];
-        
+
         console.log('parent',group);
         console.log('childs',children);
         $.each(children, function(key, child){
              const mark = {
-                "title": $(child).find('span'),
+                "title": $(child).find('span').text(),
                 "favIconUrl": $(child).find('img').attr('src'),
                 "url": $(child).find('a').attr('href'),
             };

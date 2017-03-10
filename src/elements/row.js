@@ -11,8 +11,9 @@ export function makeId(){
 export function dragNdrop(){
      $("main .container").shapeshift({
         selector: "div",
-         minColumns: 3,
-        colWidth: 300
+        minColumns: 3,
+        colWidth: 235,
+        align: "left",
      });
     $("aside .tabs").shapeshift({
         selector: "div",
@@ -28,13 +29,15 @@ export function dragNdrop(){
     });
 }
 
-export function createControls(title,id) {
+export function createControls(title,id, isTabs) {
     const controls = $("<span>", { "class": `controls` });
-    const h1 = $("<h1 contenteditable='true' data-type='title'>"+title+"</h1>");
-    const close = $("<button>", { "class": `delete-row`,'data-id':id });
+    const h1 = $("<h1 contenteditable='true' class='lead' data-type='title'>"+title+"</h1>");
+    const close = $("<button>", { text:"Remove Row", "class": `danger`,'data-id':id });
     controls.append(h1);
-    controls.append(close);
-    return controls;    
+    if (isTabs !== 'tabs') {
+        controls.append(close);
+    }
+    return controls;
 }
 
 
@@ -42,8 +45,7 @@ export function createRow(extraClass, title){
     const id = makeId();
     const container =  $("<div>", { 'id': id, "class": `container ${extraClass}`,'data-id':id });
     const groupTitle = title ? title : "untitled"
-    container.append(createControls(groupTitle,id))
-    
+    container.append(createControls(groupTitle, id, extraClass))
     return container
 }
 $('#createRow').on('click', function () {
@@ -56,7 +58,7 @@ export function createTabs(){
     chrome.tabs.query({
         lastFocusedWindow: true     // In the current window
         }, function(tabs) {
-            const container = createRow('tabs', null);
+            const container = createRow('tabs', "Open Tabs");
 
             tabs.map(function(tab, index) {
                 // console.log(tab)
