@@ -1,16 +1,20 @@
 const path = require('path');
 const webpack = require('webpack');
-var $ = require("jquery");
 
 const plugins = [
     new webpack.ProvidePlugin({
-      'window.jQuery': '$'
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery'
     })
-  ]
+  ];
+
 module.exports = {
-  entry: './src/index.js',
+  entry: path.resolve(__dirname, 'src/index'),
   output: {
-    filename: './build/bundle.js'
+    path: path.resolve(__dirname, 'build'),
+    publicPath: '/',
+    filename: 'bundle.js'
   },
   module: {
     rules: [
@@ -22,18 +26,22 @@ module.exports = {
           options: { presets: ['es2015'] }
         }],
       },
-    ],
+    ]
   },
-   plugins: [
-        new webpack.ProvidePlugin({
-            $: "jquery",
-            jQuery: "jquery",
-            'window.jQuery': 'jquery'
-        }),
-    ],
-    resolve: {
-      alias: {
-          'jquery': path.join(__dirname, 'node_modules/jquery/dist/jquery'),
+  plugins: plugins,
+    devServer: {
+      overlay: {
+        errors: true,
+        warnings: true
+      },
+      historyApiFallback: {
+        index: 'index.html'
       }
-    }
+  },
+  resolve: {
+    modules: [
+      path.resolve('node_modules'),
+      path.resolve('src'),
+    ]
+  }
 }

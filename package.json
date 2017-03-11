@@ -2,9 +2,10 @@
   "name": "bazza",
   "version": "1.0.0",
   "description": "A Locally open tab manager for",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack -p"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,8 @@
   "dependencies": {
     "fairybread": "^1.0.12",
     "jquery": "^3.1.1",
+    "jquery-shapeshift": "1.0.1",
+    "jquery-ui-dist": "^1.12.1",
     "primer-css": "^5.0.0",
     "url-info-scraper": "^0.1.2"
   }

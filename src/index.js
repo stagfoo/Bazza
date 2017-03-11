@@ -1,5 +1,7 @@
-import shapeshift from './libs/grid';
-import './libs/jquery-ui'
+import $ from 'jquery';
+require('jquery-ui-dist/jquery-ui.js');
+require('jquery-shapeshift/jquery.shapeshift.js');
+
 import { createRow, createTabs, createMarks, dragNdrop } from './elements/row';
 
 function load(callback){
@@ -20,7 +22,7 @@ function init(){
     });
 }
 export function createFromJson(){
-    $.getJSON("index.json", function (json) {
+    $.getJSON('index.json', function (json) {
         chrome.storage.local.set(json, function() {
             console.log('Settings saved');
             createTabs();
@@ -47,9 +49,9 @@ export function createJson() {
         console.log('childs',children);
         $.each(children, function(key, child){
              const mark = {
-                "title": $(child).find('span').text(),
-                "favIconUrl": $(child).find('img').attr('src'),
-                "url": $(child).find('a').attr('href'),
+                'title': $(child).find('span').text(),
+                'favIconUrl': $(child).find('img').attr('src'),
+                'url': $(child).find('a').attr('href'),
             };
             marks.push(mark);
         });
