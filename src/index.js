@@ -2,7 +2,9 @@ import $ from 'jquery';
 require('jquery-ui-dist/jquery-ui.js');
 require('jquery-shapeshift/jquery.shapeshift.js');
 
-import { createRow, createTabs, createMarks, dragNdrop } from './elements/row';
+import { createRow, createTabs, createMarks } from 'elements/row';
+import { dragNdrop, globalControls } from 'elements/events';
+
 
 function load(callback){
     chrome.storage.local.get(null, callback)
@@ -15,10 +17,11 @@ function loadByKey(key){
 function init(){
     createTabs();
     load(function (json) {
-
             createMarks(json);
             dragNdrop();
             createJson();
+            globalControls();
+            
     });
 }
 export function createFromJson(){
@@ -28,6 +31,7 @@ export function createFromJson(){
             createTabs();
             createMarks(json);
             dragNdrop();
+            globalControls();
             });
      });
 }
