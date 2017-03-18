@@ -3,6 +3,11 @@
 bazza is a simple tab management system focused on easy of use and
 ease of sharing. We don't store any of your data outside of chrome. We want you to share your bookmarks through json file.
 
+```
+npm run dev     //budo server
+npm run build   // webpack build for testing with chrome
+```
+
 ## Project Structure
 ```
 ├── build              | The final folder used for chrome
