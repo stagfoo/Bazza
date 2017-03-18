@@ -10,23 +10,23 @@ const plugins = [
   ];
 
 module.exports = {
-  entry: path.resolve(__dirname, 'src/index'),
+  entry: path.resolve(__dirname, 'app.js'),
   output: {
     path: path.resolve(__dirname, 'build'),
     publicPath: '/',
     filename: 'bundle.js'
   },
   module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: [/node_modules/],
-        use: [{
-          loader: 'babel-loader',
-          options: { presets: ['es2015'] }
-        }],
-      },
-    ]
+    rules: [ 
+      { 
+        test: /\.js$/, 
+        exclude: [/node_modules/], 
+        use: [{ 
+          loader: 'babel-loader', 
+          options: { presets: ['es2015'] } 
+        }], 
+      }, 
+    ] 
   },
   plugins: plugins,
     devServer: {
