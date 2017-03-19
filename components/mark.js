@@ -1,19 +1,20 @@
-                                                                                                                                                                                                                                                                                                                                                                                                                            const html = require('choo/html')
+const html = require('choo/html')
 
-const view = function (data,send){
-    return html`
-    <div class="card">
-        <a href=${data.url}>
-          <img src=${data.src} height="30px" width="30px" alt=${data.title}/>
-          <input oninput=${A_update} value=${data.title} >
-        </a>
-    </div>`
+const view = function (data, send) {
+  return html`
+  <div class="card">
+      <a href=${data.url}>
+        <img src=${data.src} height="30px" width="30px" alt=${data.title}/>
+        <input oninput=${update} value=${data.title} >
+      </a>
+  </div>`
 
-    function A_update (e) {
-        send('update', e.target.value)
-    }
+  function update(e) {
+    send('update', e.target.value)
+  }
 }
 const mark = {
-    view:view,
+  view: view
 }
+
 module.exports = mark
