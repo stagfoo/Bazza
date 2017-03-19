@@ -1,20 +1,22 @@
 const html = require('choo/html')
 
-const view = function (data, send) {
+const mark = ({ title, favIconUrl, url }, id, groupId, send) => {
   return html`
-  <div class="card">
-      <a href=${data.url}>
-        <img src=${data.src} height="30px" width="30px" alt=${data.title}/>
-        <input oninput=${update} value=${data.title} >
-      </a>
-  </div>`
+    <div class="card">
+      <img src=${favIconUrl} height="30px" width="30px" alt=${title}/>
+      <input oninput=${onChangeTitle} value=${title} />
+      <a href=${url}>Link</a>
+      <button onclick=${onClickDelete}>remove</button>
+    </div>`
 
-  function update(e) {
-    send('update', e.target.value)
+  function onClickDelete(id) {
+    send('removeMark', { id, groupId })
   }
-}
-const mark = {
-  view: view
+
+  function onChangeTitle(event) {
+    const title = event.target.value
+    send('updateMarkTitle', { title, id, groupId })
+  }
 }
 
 module.exports = mark
