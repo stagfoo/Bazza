@@ -1,6 +1,5 @@
 const html = require('choo/html')
 const logger = require('../utils/logger')
-const title = require('../components/title')
 const mark = require('../components/mark')
 const row = require('../components/row')
 
@@ -14,8 +13,9 @@ const mainView = function (state, prev, send) {
 
   return html`
     <main>
-      ${row.view(1,marks,state.rows[0].title, send)}
+      ${row.view(1, marks, state.rows[0].title, send)}
     </main>
   `
 }
+
 module.exports = mainView
