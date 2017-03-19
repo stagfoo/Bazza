@@ -1,4 +1,7 @@
 # Bazza
+[![built with choo v4](https://img.shields.io/badge/built%20with%20choo-v4-ffc3e4.svg?style=flat-square)](https://github.com/yoshuawuyts/choo)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com)
+
 #### A mate for your tabs
 bazza is a simple tab management system focused on easy of use and
 ease of sharing. We don't store any of your data outside of chrome. We want you to share your bookmarks through json file.
@@ -22,7 +25,7 @@ npm run build   // webpack build for testing with chrome
     ├── reducers       | a place where reducers can run free
     ├── router
     ├── states
-    └── effects        | this is for outside effect like ajax or chrome calls 
+    └── effects        | this is for outside effect like ajax or chrome calls
 ```
 
 ## Tasks
