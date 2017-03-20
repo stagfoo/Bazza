@@ -9,10 +9,12 @@ const bazzGroup = ({ title, marks }, groupId, send) => {
   // TODO: Remove inline-styles when fairybread is working
   return html`
     <div class="group">
+    <div class="controls">
       <button onclick=${onClickDeleteGroup}>Delete Group</button>
       <button onclick=${onClickExportGroup}>Export Group</button>
       <input oninput=${onChangeTitle} value=${title} />
-      <div>
+    </div>
+      <div class="marks" >
         ${bazzMarks}
       </div>
     </div>

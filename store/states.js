@@ -1,8 +1,9 @@
 const dummyData = require('./dummy-data')
 
 const states = {
-  title: 'This is the title',
-  bazzGroups: dummyData.bazzGroups
+  bazzGroups: dummyData.bazzGroups,
+  openTabs: dummyData.openTabs,
+  
 }
 
 module.exports = states

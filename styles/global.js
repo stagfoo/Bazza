@@ -19,7 +19,10 @@ globalCss.add('input', `
   border:0px;
   font-size:1.7em;
 `)
-
+globalCss.add('.groups', `
+  width:80%;
+  display:inline-block;
+`)
 // Global Styles
 globalCss.add('.group', `
   background:${cssConst.grey};
@@ -39,3 +42,9 @@ globalCss.add('.card', `
   display:inline-block;
 `)
 globalCss.render()
+
+
+
+globalCss.render()
+
+

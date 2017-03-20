@@ -7,7 +7,7 @@ const bazzGroups = ({ bazzGroups }, send) => {
   const groups = map(bazzGroups, (group, index) => bazzGroup(group, index, send))
 
   return html`
-    <div class="container group">
+    <div class="groups">
       <button onclick=${onClickAddGroup}>Add Group</button>
       ${groups}
     </div>
