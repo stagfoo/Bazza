@@ -1,6 +1,7 @@
-const app = require('../app')
-const mainView = require('../containers/home')
+const mainView = require('../containers/main')
+
 const router = [
-    '*', mainView 
+  '*', mainView
 ]
+
 module.exports = router
