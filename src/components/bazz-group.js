@@ -1,6 +1,6 @@
 const html = require('choo/html')
 const map = require('lodash.map')
-const mark = require('./mark')
+const mark = require('components/mark')
 
 const bazzGroup = ({ title, marks }, groupId, send) => {
 

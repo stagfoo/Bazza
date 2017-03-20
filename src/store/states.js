@@ -1,4 +1,4 @@
-const dummyData = require('./dummy-data')
+const dummyData = require('store/dummy-data')
 
 const states = {
   title: 'This is the title',

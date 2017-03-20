@@ -1,4 +1,4 @@
-const utils = require('../utils/util')
+const utils = require('utils/util')
 
 function exportAllGroups(state, { bazzGroups }) {
   const data = utils.formatAllGroupsForExport(bazzGroups)

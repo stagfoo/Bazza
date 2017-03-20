@@ -1,6 +1,6 @@
 const html = require('choo/html')
-const bazzGroups = require('../containers/bazz-groups')
-const navigation = require('../containers/navigation')
+const bazzGroups = require('containers/bazz-groups')
+const navigation = require('containers/navigation')
 
 const mainView = (state, prev, send) =>
   html`
