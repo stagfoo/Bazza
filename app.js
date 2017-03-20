@@ -5,6 +5,8 @@ const router = require('./store/router')
 const states = require('./store/states')
 const reducers = require('./store/reducers')
 const effects = require('./store/effects')
+const styles = require('./styles/global')
+
 
 // App Attributes
 app.model({

@@ -36,4 +36,6 @@ globalCss.add('.card', `
   max-width:200px;
   margin:10px;
   padding:10px;
+  display:inline-block;
 `)
+globalCss.render()
