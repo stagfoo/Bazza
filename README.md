@@ -7,25 +7,28 @@ bazza is a simple tab management system focused on easy of use and
 ease of sharing. We don't store any of your data outside of chrome. We want you to share your bookmarks through json file.
 
 ```
-npm run dev     //budo server
+npm start       // start dev server
 npm run build   // webpack build for testing with chrome
 ```
 
 ## Project Structure
 ```
+├── .config            | webpack configuration files
 ├── build              | The final folder used for chrome
 │   ├── manifest.json  | needed for chrome premissions
 │   ├── index.html     | a mindless wrapper
 │   └── bundle.js      | build by webpack
-├── components         | reusable components
-├── containers         | view for routers made of components
-├── utils              | put any random function here like logger
-├── styles             | fairybread styles
-└── store
-    ├── reducers       | a place where reducers can run free
-    ├── router
-    ├── states
-    └── effects        | this is for outside effect like ajax or chrome calls
+└── src                |
+    ├── components     | reusable components
+    ├── containers     | view for routers made of components
+    ├── utils          | put any random function here like logger
+    ├── styles         | fairybread styles
+    └── store
+    │  ├── reducers    | a place where reducers can run free
+    │  ├── router
+    │  ├── states
+    │  └── effects     | this is for outside effect like ajax or chrome calls
+    └── app.js         | application entry point
 ```
 
 ## Tasks
