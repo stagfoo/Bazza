@@ -28,6 +28,8 @@ function removeMark(state, { id, groupId }) {
   return newState
 }
 
+//TODO create reducers to store tabs in state
+
 const reducers = {
   updateGroupTitle,
   removeGroup,
