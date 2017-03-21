@@ -1,4 +1,4 @@
-const mainView = require('../containers/main')
+const mainView = require('containers/main')
 
 const router = [
   '*', mainView
