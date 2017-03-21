@@ -1,18 +1,35 @@
 const utils = require('utils/util')
 
-function exportAllGroups(state, { bazzGroups }) {
-  const data = utils.formatAllGroupsForExport(bazzGroups)
-  utils.jsonDownloader(data)
+function exportAllGroups(state) {
+  const data = utils.formatAllGroupsForExport(state.bazzGroups)
+  const filename = state.dialog.inputValue !== '' ?
+                   state.dialog.inputValue :
+                   'bazza-data-export'
+  utils.jsonDownloader(data, filename)
 }
 
-function exportSingleGroup(state, group) {
-  const data = utils.formatSingleGroupForExport(group)
-  utils.jsonDownloader(data, 'bazza-group')
+function exportSingleGroup(state, { groupId }) {
+  const data = utils.formatSingleGroupForExport(state.bazzGroups[groupId])
+  const filename = state.dialog.inputValue !== '' ?
+                   state.dialog.inputValue :
+                   'bazza-group-export'
+  utils.jsonDownloader(data, filename)
 }
+
+function importTabs(state, tabs, send, done) {
+  chrome.tabs.query({ lastFocusedWindow: true }, returnTabs)
+  // Callback for chrome query
+  function returnTabs(data) {
+    send('setTabs', data, done) // infinate loop?
+  }
+}
+
+// TODO: get tabs from chrome and store in the state
 
 const effects = {
   exportAllGroups,
-  exportSingleGroup
+  exportSingleGroup,
+  importTabs
 }
 
 module.exports = effects

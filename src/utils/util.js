@@ -40,11 +40,19 @@ function jsonDownloader(data, filename = 'bazza-export') {
   downloadLink.click()
 }
 
+function createErrorMessage(message) {
+  return {
+    type: 'error',
+    message: message
+  }
+}
+
 const utils = {
   formatAllGroupsForExport,
   formatSingleGroupForExport,
   prettyPrintDate,
-  jsonDownloader
+  jsonDownloader,
+  createErrorMessage
 }
 
 module.exports = utils

@@ -6,13 +6,14 @@ const bazzGroup = ({ title, marks }, groupId, send) => {
 
   const bazzMarks = map(marks, (bazzMark, index) => mark(bazzMark, index, groupId, send))
 
-  // TODO: Remove inline-styles when fairybread is working
   return html`
-    <div style="height: 200px; background: #eee; padding: 10px; border-bottom: 1px solid #999">
+    <div class="group">
+    <div class="controls">
       <button onclick=${onClickDeleteGroup}>Delete Group</button>
       <button onclick=${onClickExportGroup}>Export Group</button>
       <input oninput=${onChangeTitle} value=${title} />
-      <div>
+    </div>
+      <div class="marks" >
         ${bazzMarks}
       </div>
     </div>
@@ -24,11 +25,16 @@ const bazzGroup = ({ title, marks }, groupId, send) => {
   }
 
   function onClickDeleteGroup() {
-    send('removeGroup', { groupId })
+    const message = `Delete ${title} group?`
+    const confirmButtonText = 'Delete'
+    send('openDialog', { onConfirm: 'removeGroup', message, groupId, confirmButtonText })
   }
 
   function onClickExportGroup() {
-    send('exportSingleGroup', { title, marks })
+    const message = html`<small>Enter a filename for your group <br>(Leave blank for automatically generated name)</small>`
+    const hasInput = true
+    const confirmButtonText = 'Export Group'
+    send('openDialog', { onConfirm: 'exportSingleGroup', message, groupId, hasInput, confirmButtonText })
   }
 }
 

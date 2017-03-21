@@ -1,3 +1,4 @@
+// Generates a manifest on build
 const fs = require('fs')
 const path = require('path')
 const manifestPath = path.resolve(__dirname, '../build/manifest.json')
