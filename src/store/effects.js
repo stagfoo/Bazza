@@ -26,8 +26,21 @@ function exportSingleGroup(state, { groupId }) {
 // }
 
 function importFakeTabs(state, openTabs, send, done) {
-  if (dummyData.openTabs.length !== state.openTabs.length) {
-    send('setTabs', dummyData.openTabs, done)
+  let nonLocalTabs = dummyData.openTabs.map((openTab, index) => {
+    if (openTab.url.indexOf('chrome://') === -1) {
+      return {
+        'url': openTab.url,
+        'favIconUrl': openTab.favIconUrl,
+        'title': openTab.title,
+        'hostname': openTab.url.split('://')[1].split('/')[0]
+      }
+    } else {
+      return null
+    }
+  })
+  nonLocalTabs = nonLocalTabs.filter(n => n)
+  if (nonLocalTabs.length !== state.openTabs.length) {
+    send('setTabs', nonLocalTabs, done)
   } else {
     return false
   }

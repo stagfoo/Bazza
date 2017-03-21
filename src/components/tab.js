@@ -1,10 +1,11 @@
 const html = require('choo/html')
 
-const tab = ({ title, favIconUrl, url }, id, groupId, send) => {
+const tab = ({ title, favIconUrl, url, hostname }, id, groupId, send) => {
+  const favicon = favIconUrl ? html`<img src=${favIconUrl} height="30px" width="30px" alt=${title}/>` : null
   return html`
     <div class="card">
-      <img  height="30px" width="30px" alt=${title}/>
-      <span>${title}</span>
+      ${favicon}
+      <span>${title}</span>        
     </div>`
 }
 
