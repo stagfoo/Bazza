@@ -9,16 +9,13 @@ function exportSingleGroup(state, group) {
   const data = utils.formatSingleGroupForExport(group)
   utils.jsonDownloader(data, 'bazza-group')
 }
-function importTabs(state, tabs, send) {
-
+function importTabs(state, tabs, send, done) {
+  chrome.tabs.query({ lastFocusedWindow: true }, returnTabs)
   // Callback for chrome query
   function returnTabs(data) {
-    send('setTabs', data)
+    console.log(send, data)
+    send('setTabs', data) //WTF is done
   }
-
-  // Chrome Query
-  const tabList = browser.tabs(returnTabs, send)
-  console.log(tabList)
 }
 
 // TODO: get tabs from chrome and store in the state
