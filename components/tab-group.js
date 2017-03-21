@@ -25,6 +25,14 @@ const compCss = new fairybread('return') // eslint-disable-line new-cap
 compCss.add('', `
      width:20%;
      float:right;
+     height:100vh;
+     text-align:center;
+`)
+compCss.add('.card', `
+     width:100%;
+     float:none;
+     display:inline-block;
+     clear:both;
 `)
 
 module.exports = tabGroup

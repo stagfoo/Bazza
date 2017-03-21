@@ -9,7 +9,6 @@ const mainView = (state, prev, send) =>
       ${navigation(state, send)}
       ${tabGroup(state, send)}
       ${bazzGroups(state, send)}
-      
     </main>
   `
 

@@ -11,11 +11,14 @@ function requestTabs(callback,send) {
   return chrome.tabs.query({ lastFocusedWindow: true }, callback)
 }
 
-const browser = {
-  clear: chrome.storage.local.clear,
-  set: chrome.storage.local.set,
-  loadAll: load,
-  load: loadByKey,
-  tabs: requestTabs
+const browser = () => {
+  if(chrome)
+  return {
+    clear: chrome.storage.local.clear,
+    set: chrome.storage.local.set,
+    loadAll: load,
+    load: loadByKey,
+    tabs: requestTabs
+  }
 }
 module.exports = browser
