@@ -1,18 +1,14 @@
 
 function load(callback) {
-  chrome.storage.local.get(null, callback);
+  chrome.storage.local.get(null, callback)
 }
 function loadByKey(key) {
-  chrome.storage.local.get(key, function(result) {
-    return result;
-  });
-}
-function getTabs() {
-  chrome.tabs.query(
-    { lastFocusedWindow: true // In the current window
-    }, (openTabs) => {
-    return openTabs
+  chrome.storage.local.get(key, function (result) {
+    return result
   })
+}
+function requestTabs(callback,send) {
+  return chrome.tabs.query({ lastFocusedWindow: true }, callback)
 }
 
 const browser = {
@@ -20,6 +16,6 @@ const browser = {
   set: chrome.storage.local.set,
   loadAll: load,
   load: loadByKey,
-  tabs: getTabs
+  tabs: requestTabs
 }
-module.exports = browser;
+module.exports = browser

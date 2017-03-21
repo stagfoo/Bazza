@@ -1,6 +1,6 @@
-function setTabs(state, { tabs }) {
+function setTabs(state, data) {
   const newState = state
-  newState.openTabs = tabs
+	newState.openTabs = data
   return newState
 }
 module.exports = setTabs
