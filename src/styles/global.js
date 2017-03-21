@@ -36,6 +36,8 @@ globalCss.add('.group', `
   border-bottom: 1px solid #efefef;
   padding-top:4em
 `)
+globalCss.add('.card img', `float:left; margin:0 1em 1em 0;`)
+globalCss.add('.card input', `width:80%;`)
 
 globalCss.add('.card', `
   border-radius: 4px;

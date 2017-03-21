@@ -75,6 +75,28 @@ const openTabs = [
     'audible': false,
     'autoDiscardable': true,
     'discarded': false,
+    'favIconUrl': 'adsadadsa.png',
+    'height': 1103,
+    'highlighted': false,
+    'id': 80,
+    'incognito': false,
+    'index': 3,
+    'mutedInfo': {
+      'muted': false
+    },
+    'pinned': false,
+    'selected': false,
+    'status': 'complete',
+    'title': 'Chromes super secert settings',
+    'url': 'chrome://settings',
+    'width': 1920,
+    'windowId': 71
+  },
+  {
+    'active': false,
+    'audible': false,
+    'autoDiscardable': true,
+    'discarded': false,
     'favIconUrl': 'https://assets-cdn.github.com/favicon.ico',
     'height': 1103,
     'highlighted': false,
