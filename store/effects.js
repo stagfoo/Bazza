@@ -13,8 +13,7 @@ function importTabs(state, tabs, send, done) {
   chrome.tabs.query({ lastFocusedWindow: true }, returnTabs)
   // Callback for chrome query
   function returnTabs(data) {
-    console.log(send, data)
-    send('setTabs', data) //WTF is done
+    send('setTabs', data, done) //infinate loop?
   }
 }
 
