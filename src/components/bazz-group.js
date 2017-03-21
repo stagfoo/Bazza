@@ -9,9 +9,9 @@ const bazzGroup = ({ title, marks }, groupId, send) => {
   return html`
     <div class="group">
     <div class="controls">
-      <button onclick=${onClickDeleteGroup}>Delete Group</button>
-      <button onclick=${onClickExportGroup}>Export Group</button>
-      <input oninput=${onChangeTitle} value=${title} />
+      <input oninput=${onChangeTitle} value=${title} />    
+      <button onclick=${onClickDeleteGroup} class="pull-right" >Delete Group</button>
+      <button onclick=${onClickExportGroup} class="pull-right" >Export Group</button>
     </div>
       <div class="marks" >
         ${bazzMarks}
@@ -31,7 +31,7 @@ const bazzGroup = ({ title, marks }, groupId, send) => {
   }
 
   function onClickExportGroup() {
-    const message = html`<small>Enter a filename for your group <br>(Leave blank for automatically generated name)</small>`
+    const message = html`<span>Enter a filename for your group (Leave blank for automatically generated name)</span>`
     const hasInput = true
     const confirmButtonText = 'Export Group'
     send('openDialog', { onConfirm: 'exportSingleGroup', message, groupId, hasInput, confirmButtonText })

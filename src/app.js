@@ -4,6 +4,7 @@ const router = require('store/router')
 const states = require('store/states')
 const reducers = require('store/reducers')
 const effects = require('store/effects')
+const globalCss = require('styles/global')
 
 // App Attributes
 app.model({
@@ -22,6 +23,7 @@ app.router(router)
 const tree = app.start()
 document.body.innerHTML = '' // Dirty reset of DOM for hot module replacement
 document.body.appendChild(tree)
+globalCss.render()
 
 if (module.hot) {
   module.hot.accept()

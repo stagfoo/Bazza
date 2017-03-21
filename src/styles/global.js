@@ -4,13 +4,14 @@ const globalCss = new fairybread('global') // eslint-disable-line new-cap
 const cssConst = {
   black: '#282828',
   white: '#fff',
-  grey: '#ebebeb'
+  grey: '#fcfcfc'
 }
 
 globalCss.add('body', `
   margin:0px;
   padding:0px;
   font-size:10px;
+  font-family: "Noto Sans", "Noto Sans CJK JP", sans-serif;
 `)
 
 globalCss.add('input', `
@@ -20,31 +21,34 @@ globalCss.add('input', `
   font-size:1.7em;
 `)
 
-globalCss.add('.groups', `
+// Global Styles
+globalCss.add('.container', `
+  background:${cssConst.white};
   width:80%;
+  float:left;
   display:inline-block;
 `)
-
-// Global Styles
 globalCss.add('.group', `
-  background:${cssConst.grey};
-  width:100%;
+  background:${cssConst.white};
+  min-height:150px;
   display:block;
-  float:left;
-  height:200px;
+  clear:both;
+  border-bottom: 1px solid #efefef;
+  padding-top:4em
 `)
 
 globalCss.add('.card', `
   border-radius: 4px;
   background-color: ${cssConst.white};
   border-bottom: 2px solid rgba(0, 0, 0, 0.08);
-  max-width:200px;
+  width:200px;
   margin:10px;
-  padding:10px;
+  padding:1.3em;
   display:inline-block;
+  border: solid 1px rgba(0, 0, 0,
+      0.2);
+  overflow:hidden;
 `)
+globalCss.add('.pull-right', `float:right`)
 
-globalCss.render()
-
-
-
+module.exports = globalCss

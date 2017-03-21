@@ -1,7 +1,7 @@
 const html = require('choo/html')
 const bazzGroups = require('containers/bazz-groups')
 const navigation = require('containers/navigation')
-const tabGroup = require('components/tab-group')
+const tabGroup = require('containers/tab-group')
 const dialog = require('components/dialog')
 
 const mainView = (state, prev, send) =>
