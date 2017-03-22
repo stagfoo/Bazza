@@ -3,6 +3,7 @@
 // - Make newState immutable in reducers (use Object.assign...?)
 
 const setTabs = require('store/reducers/tabs')
+const drag = require('store/reducers/drag')
 
 // TODO: Can maybe use for a warning/error notification component
 // Called when error in 'components/file-uploader.js'
@@ -90,7 +91,8 @@ const reducers = {
   applySingleImport,
   updateDialogVisible,
   openDialog,
-  updateDialogInput
+  updateDialogInput,
+  'updateDragged': drag.updateDragged
 }
 
 module.exports = reducers

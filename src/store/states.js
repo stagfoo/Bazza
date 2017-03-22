@@ -10,7 +10,8 @@ const states = {
     confirmButtonText: '',
     args: undefined,
     inputValue: ''
-  }
+  },
+  draggedItem: {}
 }
 
 module.exports = states

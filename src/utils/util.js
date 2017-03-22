@@ -46,13 +46,21 @@ function createErrorMessage(message) {
     message: message
   }
 }
+function makeId() {
+  var text = 'bazza_'
+  var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+  var array = Array.apply(null, Array(20))
+  array.map(function (data, key) { text += possible.charAt(Math.floor(Math.random() * possible.length)) })
+  return text
+};
 
 const utils = {
   formatAllGroupsForExport,
   formatSingleGroupForExport,
   prettyPrintDate,
   jsonDownloader,
-  createErrorMessage
+  createErrorMessage,
+  makeId
 }
 
 module.exports = utils

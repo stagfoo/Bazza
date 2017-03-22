@@ -5,7 +5,7 @@ const tabGroup = require('containers/tab-group')
 const dialog = require('components/dialog')
 
 const mainView = (state, prev, send) =>
-  html`
+ html`
     <main>
       ${navigation(state, send)}
       ${tabGroup(state, send)}
@@ -13,5 +13,4 @@ const mainView = (state, prev, send) =>
       ${dialog(state, send)}
     </main>
   `
-
 module.exports = mainView

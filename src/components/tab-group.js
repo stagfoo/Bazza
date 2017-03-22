@@ -21,8 +21,7 @@ const tabGroup = ({title, openTabs}, send) => {
   `
 }
 const compCss = new fairybread('return') // eslint-disable-line new-cap
-compCss.add(
-  '',
+compCss.add('',
   `
      width:20%;
      float:right;
@@ -31,8 +30,7 @@ compCss.add(
      overflow:hidden;
 `
 )
-compCss.add(
-  '.card',
+compCss.add('.card',
   `
      float:none;
      display:inline-block;

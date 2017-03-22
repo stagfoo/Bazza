@@ -7,7 +7,7 @@ const bazzGroup = ({ title, marks }, groupId, send) => {
   const bazzMarks = map(marks, (bazzMark, index) => mark(bazzMark, index, groupId, send))
 
   return html`
-    <div class="group">
+    <div class="group" ondragenter=${dragEnter} ondrop=${dropped}>
     <div class="controls">
       <input oninput=${onChangeTitle} value=${title} />    
       <button onclick=${onClickDeleteGroup} class="pull-right" >Delete Group</button>
@@ -35,6 +35,13 @@ const bazzGroup = ({ title, marks }, groupId, send) => {
     const hasInput = true
     const confirmButtonText = 'Export Group'
     send('openDialog', { onConfirm: 'exportSingleGroup', message, groupId, hasInput, confirmButtonText })
+  }
+  // Drag n Drop
+  function dragEnter() {
+    console.log('somethings being dragged in')
+  }
+  function dropped() {
+    console.log('somethings being dropped')
   }
 }
 
