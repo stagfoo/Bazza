@@ -4,7 +4,7 @@ const tab = ({ title, favIconUrl, url, hostname }, id, send) => {
 
   const favicon = favIconUrl ? html`<img src=${favIconUrl} height="30px" width="30px" alt=${title}/>` : null
   return html`
-    <div class="card" ondragstart=${dragStart} ondragend=${dragEnd} draggable="true">
+    <div class="mark" ondragstart=${dragStart} ondragend=${dragEnd} draggable="true">
       ${favicon}
       <span>${title}</span>
     </div>`

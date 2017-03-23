@@ -14,7 +14,16 @@ globalCss.add('body', `
   font-size:10px;
   font-family: "Noto Sans", "Noto Sans CJK JP", sans-serif;
 `)
-
+globalCss.add('button', `
+  margin:0px;
+  padding:1em;
+  font-size:1.2em;
+  border:0px;
+  background:${cssConst.greyDark};
+  text-transform:capitalize;
+  font-weight:thin
+  font-family: "Noto Sans", "Noto Sans CJK JP", sans-serif;
+`)
 globalCss.add('input', `
   margin:0px;
   padding:0px;
@@ -37,10 +46,10 @@ globalCss.add('.group', `
   border-bottom: 1px solid #efefef;
   padding-top:4em
 `)
-globalCss.add('.card img', `float:left; margin:0 1em 1em 0;`)
-globalCss.add('.card input', `width:80%;`)
+globalCss.add('.mark img', `float:left; margin:0 1em 1em 0;`)
+globalCss.add('.mark input', `width:80%;`)
 
-globalCss.add('.card', `
+globalCss.add('.mark', `
   border-radius: 4px;
   background-color: ${cssConst.white};
   border-bottom: 2px solid rgba(0, 0, 0, 0.08);
@@ -53,7 +62,7 @@ globalCss.add('.card', `
   overflow:hidden;
 `)
 globalCss.add('.ghost', `
-  ${globalCss.extend('.card').css}
+  ${globalCss.extend('.mark').css}
   background:${cssConst.greyDark};
   height:40px;
   border:0px;
