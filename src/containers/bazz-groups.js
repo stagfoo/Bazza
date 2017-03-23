@@ -5,10 +5,9 @@ const utils = require('utils/util')
 
 const bazzGroups = ({bazzGroups, focusedGroup}, send) => {
   const groups = map(bazzGroups, (group, index) => bazzGroup(group, index, send, focusedGroup))
-  const id = utils.makeId()
 
   return html`
-    <div id=${id} class="container">
+    <div class="container">
       <button onclick=${onClickAddGroup}>Add Group</button>
       ${groups}
     </div>
