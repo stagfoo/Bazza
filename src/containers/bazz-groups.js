@@ -3,8 +3,8 @@ const map = require('lodash.map')
 const bazzGroup = require('components/bazz-group')
 const utils = require('utils/util')
 
-const bazzGroups = ({bazzGroups}, send) => {
-  const groups = map(bazzGroups, (group, index) => bazzGroup(group, index, send))
+const bazzGroups = ({bazzGroups, focusedGroup}, send) => {
+  const groups = map(bazzGroups, (group, index) => bazzGroup(group, index, send, focusedGroup))
   const id = utils.makeId()
 
   return html`
@@ -15,9 +15,6 @@ const bazzGroups = ({bazzGroups}, send) => {
   `
   function onClickAddGroup() {
     send('addNewGroup')
-  }
-  function onHoverOver() {
-
   }
 }
 

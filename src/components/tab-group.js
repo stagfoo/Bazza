@@ -5,7 +5,7 @@ const fairybread = require('fairybread')
 
 const tabGroup = ({title, openTabs}, send) => {
   const styles = compCss.render('return').css
-  const tabList = map(openTabs, (singleTab, index) => tab(singleTab, index))
+  const tabList = map(openTabs, (singleTab, index) => tab(singleTab, index, send))
   return html`
     <aside class="group ${compCss.id}">
     <div class="controls">

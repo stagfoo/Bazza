@@ -92,7 +92,9 @@ const reducers = {
   updateDialogVisible,
   openDialog,
   updateDialogInput,
-  'updateDragged': drag.updateDragged
+  'updateDragged': drag.updateDragged,
+  'updateMarkDropped': drag.updateMarkDropped,
+  'updateFocusedGroup': drag.updateFocusedGroup
 }
 
 module.exports = reducers

@@ -11,6 +11,7 @@ const states = {
     args: undefined,
     inputValue: ''
   },
+  focusedGroup: '',
   draggedItem: {}
 }
 

@@ -4,7 +4,8 @@ const globalCss = new fairybread('global') // eslint-disable-line new-cap
 const cssConst = {
   black: '#282828',
   white: '#fff',
-  grey: '#fcfcfc'
+  grey: '#fcfcfc',
+  greyDark: '#efefef'
 }
 
 globalCss.add('body', `
@@ -50,6 +51,12 @@ globalCss.add('.card', `
   border: solid 1px rgba(0, 0, 0,
       0.2);
   overflow:hidden;
+`)
+globalCss.add('.ghost', `
+  ${globalCss.extend('.card').css}
+  background:${cssConst.greyDark};
+  height:40px;
+  border:0px;
 `)
 globalCss.add('.pull-right', `float:right`)
 
