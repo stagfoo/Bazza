@@ -3,7 +3,7 @@
 // - Make newState immutable in reducers (use Object.assign...?)
 
 const setTabs = require('store/reducers/tabs')
-const drag = require('store/reducers/drag')
+const {updateDragged, updateMarkDropped, updateFocusedGroup} = require('store/reducers/drag')
 
 // TODO: Can maybe use for a warning/error notification component
 // Called when error in 'components/file-uploader.js'
@@ -79,6 +79,8 @@ function updateDialogInput(state, { inputValue }) {
 }
 
 // TODO: Create a combine reducers
+
+
 const reducers = {
   updateGroupTitle,
   removeGroup,
@@ -92,9 +94,9 @@ const reducers = {
   updateDialogVisible,
   openDialog,
   updateDialogInput,
-  'updateDragged': drag.updateDragged,
-  'updateMarkDropped': drag.updateMarkDropped,
-  'updateFocusedGroup': drag.updateFocusedGroup
+  updateDragged,
+  updateMarkDropped,
+  updateFocusedGroup
 }
 
 module.exports = reducers
