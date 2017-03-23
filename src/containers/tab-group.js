@@ -7,7 +7,7 @@ const tabGroups = ({openTabs}, send) => {
     tabGroup({
       title: 'Open Tabs',
       openTabs: openTabs
-    })
+    }, send)
   ]
 }
 

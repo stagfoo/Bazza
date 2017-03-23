@@ -5,7 +5,7 @@ const fairybread = require('fairybread')
 
 const tabGroup = ({title, openTabs}, send) => {
   const styles = compCss.render('return').css
-  const tabList = map(openTabs, (singleTab, index) => tab(singleTab, index))
+  const tabList = map(openTabs, (singleTab, index) => tab(singleTab, index, send))
   return html`
     <aside class="group ${compCss.id}">
     <div class="controls">
@@ -21,8 +21,7 @@ const tabGroup = ({title, openTabs}, send) => {
   `
 }
 const compCss = new fairybread('return') // eslint-disable-line new-cap
-compCss.add(
-  '',
+compCss.add('',
   `
      width:20%;
      float:right;
@@ -31,8 +30,7 @@ compCss.add(
      overflow:hidden;
 `
 )
-compCss.add(
-  '.card',
+compCss.add('.card',
   `
      float:none;
      display:inline-block;

@@ -2,19 +2,20 @@ const html = require('choo/html')
 const map = require('lodash.map')
 const mark = require('components/mark')
 
-const bazzGroup = ({ title, marks }, groupId, send) => {
+const bazzGroup = ({ title, marks }, groupId, send, focusedGroup) => {
 
   const bazzMarks = map(marks, (bazzMark, index) => mark(bazzMark, index, groupId, send))
-
+  const ghostMark = focusedGroup === groupId ? html`<div class="ghost"></div>` : null
   return html`
-    <div class="group">
+    <div class="group" ondragenter=${dragEnter}>
     <div class="controls">
-      <input oninput=${onChangeTitle} value=${title} />    
+      <input oninput=${onChangeTitle} value=${title} />
       <button onclick=${onClickDeleteGroup} class="pull-right" >Delete Group</button>
       <button onclick=${onClickExportGroup} class="pull-right" >Export Group</button>
     </div>
       <div class="marks" >
         ${bazzMarks}
+        ${ghostMark}
       </div>
     </div>
   `
@@ -36,6 +37,11 @@ const bazzGroup = ({ title, marks }, groupId, send) => {
     const confirmButtonText = 'Export Group'
     send('openDialog', { onConfirm: 'exportSingleGroup', message, groupId, hasInput, confirmButtonText })
   }
+  // Drag n Drop
+  function dragEnter() {
+    send('updateFocusedGroup', groupId)
+  }
+
 }
 
 module.exports = bazzGroup
