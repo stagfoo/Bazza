@@ -22,6 +22,8 @@ function updateFocusedGroup(state, groupId) {
   newState.focusedGroup = groupId
   return newState
 }
+
+// TODO - Allow dragging inside groups
 function updateMarkLocation(state, {id, groupId}) {
   const newState = state
   const draggedItem = newState.draggedItem
