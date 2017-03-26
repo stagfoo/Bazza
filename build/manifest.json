@@ -9,6 +9,7 @@
   "chrome_url_overrides" : {
         "newtab": "index.html"
     },
+    
   "permissions": [ "contextMenus", "management", "tabs", "storage", "<all_urls>" ],
   "content_security_policy": "default-src 'self'; script-src 'self' http://localhost:8080 'unsafe-eval'; connect-src http://localhost:8080; style-src * 'unsafe-inline' 'self' blob:; img-src * 'self' data: https:;"
 }

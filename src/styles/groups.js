@@ -8,9 +8,11 @@ function styles(sheet, sv) {
     min-height:150px;
     display:block;
     clear:both;
-    border-bottom: 1px solid #efefef;
-    padding-top:4em
+    padding-bottom:4em;
+    padding-top:1em;
+    
   `)
-
+  sheet.add('aside', `
+  `)
 }
 module.exports = styles

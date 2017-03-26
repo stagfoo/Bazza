@@ -8,20 +8,22 @@ function styles(sheet, sv) {
     font-size:10px;
     font-family: "Noto Sans", "Noto Sans CJK JP", sans-serif;
   `)
-  sheet.add('button', `
-  margin:0px;
-  padding:1em;
-  font-size:1.2em;
-  border:0px;
-  text-transform:capitalize;
+  sheet.add('button,h3', `
   font-weight:thin
   font-family: "Noto Sans", "Noto Sans CJK JP", sans-serif;
+  border:0px;
 `)
   sheet.add('input', `
     margin:0px;
     padding:0px;
     border:0px;
     font-size:1.7em;
+  `)
+  sheet.add('h1', `
+    font-weight:100;
+    font-size:1.7em;
+    font-family: "Noto Sans", "Noto Sans CJK JP", sans-serif;
+    
   `)
 
 }

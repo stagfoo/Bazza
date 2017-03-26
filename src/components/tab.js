@@ -1,16 +1,16 @@
 const html = require('choo/html')
+const Metascraper = require('metascraper')
 
 const tab = ({ title, favIconUrl, url, hostname }, id, send) => {
 
-  const favicon = favIconUrl ? html`<img src=${favIconUrl} height="30px" width="30px" alt=${title}/>` : null
   return html`
-    <div class="mark" ondragstart=${dragStart} ondragend=${dragEnd} draggable="true">
-      ${favicon}
+    <div class="tab" ondragstart=${dragStart} ondragend=${dragEnd} draggable="true">
       <span>${title}</span>
     </div>`
 
   function dragStart(e) {
-    send('updateDragged', { title, favIconUrl, url, hostname })
+
+        send('updateDragged', { title, favIconUrl, url, hostname })    
   }
   function dragging() {
     console.log('Im in a status of being Dragged')

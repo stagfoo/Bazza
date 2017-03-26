@@ -13,7 +13,9 @@ function updateMarkDropped(state) {
   newState.focusedGroup = ''
   if (groupId !== undefined) {
     console.log(groupId)
-    newState.bazzGroups[groupId].marks.splice(draggedItem.id, 1)
+    if (newState.bazzGroups[groupId]) {
+      newState.bazzGroups[groupId].marks.splice(draggedItem.id, 1)
+    }
   }
   return newState
 }

@@ -2,7 +2,7 @@
 // - Move back out to individual reducer directories/files. Just importing is not working for now, need to create a proper combineReducers util function
 // - Make newState immutable in reducers (use Object.assign...?)
 
-const setTabs = require('store/reducers/tabs')
+const { setTabs, tabsLoaded } = require('store/reducers/tabs')
 const {updateDragged, updateMarkDropped, updateFocusedGroup, updateMarkLocation} = require('store/reducers/drag')
 
 // TODO: Can maybe use for a warning/error notification component
@@ -96,7 +96,8 @@ const reducers = {
   updateDragged,
   updateMarkDropped,
   updateFocusedGroup,
-  updateMarkLocation
+  updateMarkLocation,
+  tabsLoaded
 }
 
 module.exports = reducers

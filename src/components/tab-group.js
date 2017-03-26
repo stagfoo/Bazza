@@ -30,12 +30,5 @@ compCss.add('',
      overflow:hidden;
 `
 )
-compCss.add('.card',
-  `
-     float:none;
-     display:inline-block;
-     clear:both;
-`
-)
 
 module.exports = tabGroup
