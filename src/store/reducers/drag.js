@@ -28,8 +28,6 @@ function updateMarkLocation(state, {id, groupId}) {
   const newState = state
   const draggedItem = newState.draggedItem
   const locationMark = newState.bazzGroups[groupId].marks[id]
-  console.log(`Take this ${draggedItem.groupId}-${draggedItem.id}`)
-  console.log(`Put it here this ${groupId}-${id}`)
   newState.bazzGroups[draggedItem.groupId].marks.splice(draggedItem.id, 1)
   newState.bazzGroups[groupId].marks.splice(id, 0, draggedItem)
   newState.draggedItem = {}
