@@ -1,7 +1,14 @@
 function styles(sheet, sv) {
-  console.log(sv)
   sheet.add('.mark img', `
-    
+    position: absolute;
+    top: -10px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 400px;
+    height: auto;
+    z-index: 0;
+    opacity: 0.2;
   `)
   sheet.add('.mark .close', `
     position:absolute;
@@ -30,9 +37,14 @@ function styles(sheet, sv) {
     font-size:1.7em;
     overflow:hidden;
     padding-top:0px; margin-top:0px;
+    position:relative;
+    z-index:2;
   `)
   sheet.add('.mark a', `
       text-decoration:none;
+      position:relative;
+      z-index:2;
+      overflow:hidden;
   `)
   sheet.add('.mark span', `
       background:transparent;
@@ -46,27 +58,36 @@ function styles(sheet, sv) {
       width:100%;
       display:block;
       text-align:right;
+      position:relative;
+      z-index:2;
   `)
 
   sheet.add('.mark', `
-    ${sv.gradient1}
+    ${sv.gradient0}
     cursor:pointer;
     position:relative;
     border-radius: 4px;
     min-width:100px;
     max-width:300px;
-    box-shadow:10px 10px 35px #7EADD0;
+    height:90px;
+    box-shadow:10px 10px 35px rgba(92, 207, 255, 0.60);
     margin:10px;
     padding:1.3em;
     display:inline-block;
     float:left;
-    
+    transition: 0.3s ease all;
+    overflow:hidden;
   `)
+  sheet.add('.mark.gradient1', `${sv.gradient1}`)
+  sheet.add('.mark.gradient2', `${sv.gradient2}`)
+  sheet.add('.mark.gradient3', `${sv.gradient3}`)
+
   sheet.add('.tab', `
     ${sheet.extend('.mark').css}
     background: #fff;
     min-width:100px;
     width:200px;
+    height:40px;
     overflow:hidden;
     clear:both;
     border:0px;
@@ -82,13 +103,15 @@ function styles(sheet, sv) {
   `)
   sheet.add('.ghost', `
     ${sheet.extend('.mark').css}
-    background:rgba(0,0,0,0.2);
+    background:rgba(92, 207, 255, 0.5);
     border-radius:100%;
     -webkit-filter: blur(20px);
     height:40px;
     min-width:200px;
     border:0px;
+    transition: 0.1s ease all;    
   `)
+
 
 }
 module.exports = styles

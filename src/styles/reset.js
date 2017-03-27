@@ -9,7 +9,7 @@ function styles(sheet, sv) {
     font-family: "Noto Sans", "Noto Sans CJK JP", sans-serif;
   `)
   sheet.add('button,h3', `
-  font-weight:thin
+  font-weight:200;
   font-family: "Noto Sans", "Noto Sans CJK JP", sans-serif;
   border:0px;
 `)

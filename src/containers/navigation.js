@@ -5,6 +5,7 @@ const navigation = ({ bazzGroups }, send) => {
 
   return html`
     <nav>
+    <h1>Bazza</h1>
       <button onclick=${onClickExportAll}>Export All</button>
       ${fileUploader(send)}
     </nav>

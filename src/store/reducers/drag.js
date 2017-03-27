@@ -6,15 +6,18 @@ function updateDragged(state, draggedItem) {
 function updateMarkDropped(state) {
   const newState = state
   const draggedItem = state.draggedItem
+  draggedItem.gradient = Math.floor(Math.random() * 4)
   const focusedGroup = state.focusedGroup
   const groupId = draggedItem.groupId
-  newState.bazzGroups[focusedGroup].marks.push(draggedItem)
-  newState.draggedItem = {}
-  newState.focusedGroup = ''
-  if (groupId !== undefined) {
-    console.log(groupId)
-    if (newState.bazzGroups[groupId]) {
-      newState.bazzGroups[groupId].marks.splice(draggedItem.id, 1)
+  if (newState.bazzGroups[focusedGroup]) {
+    newState.bazzGroups[focusedGroup].marks.push(draggedItem)
+    newState.draggedItem = {}
+    newState.focusedGroup = ''
+    if (groupId !== undefined) {
+      console.log(groupId)
+      if (newState.bazzGroups[groupId]) {
+        newState.bazzGroups[groupId].marks.splice(draggedItem.id, 1)
+      }
     }
   }
   return newState
