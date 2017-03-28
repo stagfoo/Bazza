@@ -12,7 +12,7 @@ compCss.add(
     left: 0px;
     z-index: 0;
     display: inline-block;
-    opacity:0.8
+    opacity:0.95
 `)
 compCss.add(
   '', `
@@ -22,6 +22,7 @@ compCss.add(
     top:0px;
     left:0px;
     text-align:center;
+    z-index:9;
 `)
 compCss.add(
   '.modal-card', `
@@ -41,7 +42,8 @@ compCss.add(
 `)
 compCss.add('input',
   `text-align:center;
-  border-bottom:1px solid rgba(0,0,0,0.2);
+  border-bottom:2px solid rgba(0,0,0,1);
+  background:transparent;
 `)
 
 const dialog = ({ dialog }, send) => {
@@ -56,11 +58,11 @@ const dialog = ({ dialog }, send) => {
         <div class="modal-card card">
           <section class="modal-card-body">
             ${dialogInput()}          
-            <p>${dialog.message}</p>
+            <h3>${dialog.message}</h3>
           </section>
           <footer class="modal-card-foot">
-            <button class="button is-success" onclick=${onClickConfirm}>${dialog.confirmButtonText}</button>
-            <button class="button" onclick=${onClickCancel}>Cancel</button>
+            <button class="button is-success" onclick=${onClickConfirm}><i class="icon-tick"></i></button>
+            <button class="button" onclick=${onClickCancel}><i class="icon-close"></i></button>
           </footer>
         </div>
       </div>

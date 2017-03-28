@@ -102,7 +102,7 @@ function styles(sheet, sv) {
     margin: 10px 15px;
     padding: 1.3em;
     width: 100%;
-    height:40px;
+    height:20px;
     overflow:hidden;
     clear:both;
     border:0px;
