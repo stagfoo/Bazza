@@ -5,11 +5,26 @@ const navigation = ({ bazzGroups }, send) => {
 
   return html`
     <nav>
-      <button onclick=${onClickExportAll}>Export All</button>
-      ${fileUploader(send)}
+    <h1>Bazza</h1>
+      <div className="main-icons">
+      <div>
+        <button onclick=${onClickAddGroup}>
+          <i class="icon-add"></i>
+        </button>
+      </div>
+        <div>
+          <button id="export-all" onclick=${onClickExportAll}><i class="icon-database" ></i></button>
+      </div>
+        <div>
+          <i id="import" class="icon-folder-files">${fileUploader(send)}</i>
+        </div>
+      </div>
+
     </nav>
   `
-
+  function onClickAddGroup() {
+    send('addNewGroup')
+  }
   function onClickExportAll() {
     const message = html`<small>Enter a filename for your export <br>(Leave blank for automatically generated name)</small>`
     const hasInput = true

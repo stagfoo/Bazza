@@ -20,8 +20,10 @@
   "dependencies": {
     "choo": "^4.1.0",
     "fairybread": "^1.1.1",
+    "lets-get-meta": "^2.1.1",
     "lodash.filter": "^4.6.0",
-    "lodash.map": "^4.6.0"
+    "lodash.map": "^4.6.0",
+    "url-snippets": "0.0.4"
   },
   "devDependencies": {
     "babel-core": "^6.23.1",

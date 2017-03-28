@@ -1,12 +1,13 @@
 const html = require('choo/html')
 
-const mark = ({ title, favIconUrl, url }, id, groupId, send) => {
+const mark = ({ title, favIconUrl, url, hostname, gradient }, id, groupId, send) => {
   return html`
-      <div class="card" ondragstart=${dragStart} ondragend=${dragEnd} draggable="true" >
-        <img src=${favIconUrl} height="30px" width="30px" alt=${title}/>
-        <input oninput=${onChangeTitle} value=${title} />
-        <a href=${url}>Link</a>
-        <button onclick=${onClickDelete}>remove</button>
+      <div class="mark gradient${gradient}" ondragstart=${dragStart} ondragend=${dragEnd} draggable="true" >
+        <a href=${url}>
+          <h3 oninput=${onChangeTitle} >${title}</h3>
+          <span>${hostname}</span>
+        </a>
+        <button class="close" onclick=${onClickDelete}><i class="icon-close" /></button>        
     </div>`
 
   function onClickDelete() {
@@ -19,7 +20,7 @@ const mark = ({ title, favIconUrl, url }, id, groupId, send) => {
     send('updateMarkTitle', { title, id, groupId })
   }
   function dragStart(e) {
-    send('updateDragged', { title, favIconUrl, url, id, groupId })
+    send('updateDragged', { title, favIconUrl, url, id, groupId, hostname, gradient })
   }
   function dragEnd() {
     send('updateMarkDropped')

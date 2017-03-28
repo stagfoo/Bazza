@@ -1,7 +1,7 @@
 const dummyData = require('store/dummy-data')
 
 const states = {
-  bazzGroups: dummyData.bazzGroups,
+  bazzGroups: [],
   openTabs: [],
   dialog: {
     visible: false,
@@ -12,7 +12,8 @@ const states = {
     inputValue: ''
   },
   focusedGroup: '',
-  draggedItem: {}
+  draggedItem: {},
+  tabsLoaded: false
 }
 
 module.exports = states
