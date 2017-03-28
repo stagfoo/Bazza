@@ -23,6 +23,7 @@ app.router(router)
 const tree = app.start()
 document.body.innerHTML = '' // Dirty reset of DOM for hot module replacement
 document.body.appendChild(tree)
+document.body.appendChild(renderCss.specialSheet) // Invesitgate this
 renderCss.render()
 
 if (module.hot) {

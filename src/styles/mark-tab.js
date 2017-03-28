@@ -15,21 +15,31 @@ function styles(sheet, sv) {
     top:-5px;
     right:-5px;
     border-radius:100%;
-    height:0x; width:0px;
     padding:0px;
+    opacity:0;
     overflow:hidden;
-    transition:0.3s ease all;
-    z-index:9;
-  `)
-  sheet.add('.mark:hover .close', `
     height:10px; width:10px;
     padding:1em;
-    
+    transition:0.3s ease all;
+    z-index:9;
+    background:#fff;
+  `)
+  sheet.add('.mark:hover .close', `
+    opacity:1;
+  `)
+  sheet.add('.mark .close i', `
+    float: left;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    font-size: 2em;
+    color:${sv.red}
+
   `)
   sheet.add('.mark h3', `
     background:transparent;
     width:auto;
-    margin-bottom:1em;    
+    margin-bottom:1em;
     color:#fff;
     font-weight:200;
     border:0px;
@@ -76,7 +86,6 @@ function styles(sheet, sv) {
     display:inline-block;
     float:left;
     transition: 0.3s ease all;
-    overflow:hidden;
   `)
   sheet.add('.mark.gradient1', `${sv.gradient1}`)
   sheet.add('.mark.gradient2', `${sv.gradient2}`)
@@ -86,7 +95,7 @@ function styles(sheet, sv) {
     ${sheet.extend('.mark').css}
     background: #fff;
     min-width:100px;
-    width:200px;
+    width:80%;
     height:40px;
     overflow:hidden;
     clear:both;
@@ -109,9 +118,7 @@ function styles(sheet, sv) {
     height:40px;
     min-width:200px;
     border:0px;
-    transition: 0.1s ease all;    
+    transition: 0.1s ease all;
   `)
-
-
 }
 module.exports = styles

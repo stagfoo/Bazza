@@ -8,13 +8,9 @@ const bazzGroups = ({bazzGroups, focusedGroup}, send) => {
 
   return html`
     <div class="container">
-      <button onclick=${onClickAddGroup}>Add Group</button>
       ${groups}
     </div>
   `
-  function onClickAddGroup() {
-    send('addNewGroup')
-  }
 }
 
 module.exports = bazzGroups

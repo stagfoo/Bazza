@@ -1,5 +1,4 @@
 const html = require('choo/html')
-const Metascraper = require('metascraper')
 
 const tab = ({ title, favIconUrl, url, hostname }, id, send) => {
   return html`

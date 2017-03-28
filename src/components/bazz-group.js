@@ -6,12 +6,11 @@ const bazzGroup = ({ title, marks }, groupId, send, focusedGroup) => {
 
   const bazzMarks = map(marks, (bazzMark, index) => mark(bazzMark, index, groupId, send))
   const ghostMark = focusedGroup === groupId ? html`<div class="ghost"></div>` : null
-  return html`
-    <div class="group" ondragenter=${dragEnter}>
+  return html`<div class="group" ondragenter=${dragEnter}>
     <div class="controls">
       <input oninput=${onChangeTitle} value=${title} />
-      <button onclick=${onClickDeleteGroup} class="pull-right" >Delete Group</button>
-      <button onclick=${onClickExportGroup} class="pull-right" >Export Group</button>
+      <button onclick=${onClickDeleteGroup} class="pull-right" ><i class="icon-close" ></i></button>
+      <button onclick=${onClickExportGroup} class="pull-right" ><i class="icon-group" ></i></button>
     </div>
       <div class="marks" >
         ${bazzMarks}

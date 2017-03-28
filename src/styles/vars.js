@@ -6,9 +6,11 @@ const vars = {
   gradient2: factory.gradient('#FF4242', '#FC00F2', 'diagonal'),
   gradient3: factory.gradient('#0090FF', '#00F7ED', 'diagonal'),
   grey: '',
-  blue: '',
+  blue: 'rgb(65, 194, 255)',
   textColor: '',
-  shadows: ''
+  shadows: '',
+  'red': '#ff0076',
+  'redDark': '#9c0505'
 }
 
 module.exports = vars

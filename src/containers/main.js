@@ -7,8 +7,8 @@ const dialog = require('components/dialog')
 const mainView = (state, prev, send) =>
  html`
     <main>
-      ${navigation(state, send)}
       ${tabGroup(state, send)}
+      ${navigation(state, send)}
       ${bazzGroups(state, send)}
       ${dialog(state, send)}
     </main>

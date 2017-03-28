@@ -9,7 +9,7 @@ const tabGroup = ({title, openTabs}, send) => {
   return html`
     <aside class="group ${compCss.id}">
     <div class="controls">
-      <h1>${title} </h1>
+      <h2>${title}</h2>
     </div>
       <div class="tabs" >
         ${tabList}
@@ -21,14 +21,12 @@ const tabGroup = ({title, openTabs}, send) => {
   `
 }
 const compCss = new fairybread('return') // eslint-disable-line new-cap
-compCss.add('',
-  `
+compCss.add('', `
      width:20%;
      float:right;
      height:100vh;
      text-align:center;
      overflow:hidden;
-`
-)
+`)
 
 module.exports = tabGroup
