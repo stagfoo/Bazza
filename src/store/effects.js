@@ -1,4 +1,6 @@
 const utils = require('utils/util')
+const browser = require('utils/chrome')
+
 const dummyData = require('./dummy-data')
 
 function exportAllGroups(state) {
