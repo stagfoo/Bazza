@@ -1,5 +1,9 @@
 function updateDragged(state, draggedItem) {
   const newState = state
+  const length = 35
+  if (draggedItem.title.length > length) {
+    draggedItem.title = draggedItem.title.substring(0, length)+'...'
+  }
   newState.draggedItem = draggedItem
   return newState
 }
@@ -14,7 +18,6 @@ function updateMarkDropped(state) {
     newState.draggedItem = {}
     newState.focusedGroup = ''
     if (groupId !== undefined) {
-      console.log(groupId)
       if (newState.bazzGroups[groupId]) {
         newState.bazzGroups[groupId].marks.splice(draggedItem.id, 1)
       }

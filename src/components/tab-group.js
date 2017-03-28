@@ -2,6 +2,7 @@ const html = require('choo/html')
 const map = require('lodash.map')
 const tab = require('components/tab')
 const fairybread = require('fairybread')
+const sv = require('styles/vars')
 
 const tabGroup = ({title, openTabs}, send) => {
   const styles = compCss.render('return').css
@@ -27,6 +28,7 @@ compCss.add('', `
      height:100vh;
      text-align:center;
      overflow:hidden;
+     background:${sv.grey}
 `)
 
 module.exports = tabGroup

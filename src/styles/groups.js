@@ -11,6 +11,10 @@ function styles(sheet, sv) {
   sheet.add('.main-icons div', `
     margin:0.5em;
     display:inline-block;
+    cursor: pointer;
+  `)
+  sheet.add('.main-icons div:hover', `
+    opacity:.5
   `)
   sheet.add('.main-icons button, .main-icons i', `
     padding:0px; margin:0px;
@@ -21,10 +25,10 @@ function styles(sheet, sv) {
   `)
   sheet.add('#import', `
     position:relative;
-    width:20px;
+    width:45px;
     overflow:hidden;
     float:right;
-    font-size:2em;
+    font-size:2.5em;
   `)
   sheet.add('#import input', `
     opacity:0;

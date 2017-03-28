@@ -20,7 +20,7 @@ const mark = ({ title, favIconUrl, url, hostname, gradient }, id, groupId, send)
     send('updateMarkTitle', { title, id, groupId })
   }
   function dragStart(e) {
-    send('updateDragged', { title, favIconUrl, url, id, groupId })
+    send('updateDragged', { title, favIconUrl, url, id, groupId, hostname, gradient })
   }
   function dragEnd() {
     send('updateMarkDropped')
