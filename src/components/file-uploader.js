@@ -3,7 +3,6 @@ const html = require('choo/html')
 const utils = require('utils/util')
 
 const fileUploader = (send,
-                      successReducer = 'applyGroupsImport',
                       alertReducer = 'updateAlert',
                       fileType = 'application/json') => {
   return html`
@@ -17,7 +16,9 @@ const fileUploader = (send,
     if (isValidBazzaFile) {
       try {
         const data = JSON.parse(fileString)
-        send(successReducer, { data: data.data })
+        // FIXME: Don't like this logic here. Reducer should be passed as an arg to the component
+        const reducer = data.meta.type === 'ALL' ? 'applyGroupsImport' : 'applySingleImport'
+        send(reducer, { data: data.data })
 
       } catch (error) {
         send(alertReducer, utils.createErrorMessage('Something is wrong with the file format'))
