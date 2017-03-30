@@ -2,7 +2,7 @@ function updateDragged(state, draggedItem) {
   const newState = state
   const length = 35
   if (draggedItem.title.length > length) {
-    draggedItem.title = draggedItem.title.substring(0, length)+'...'
+    draggedItem.title = draggedItem.title.substring(0, length) + '...'
   }
   newState.draggedItem = draggedItem
   return newState
@@ -31,7 +31,7 @@ function updateFocusedGroup(state, groupId) {
   return newState
 }
 
-// TODO - Allow dragging inside groups
+// BUG - Allow dragging inside groups
 function updateMarkLocation(state, {id, groupId}) {
   const newState = state
   const draggedItem = newState.draggedItem
