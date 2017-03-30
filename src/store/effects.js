@@ -1,8 +1,6 @@
 const utils = require('utils/util')
 const browser = require('utils/chrome')
 
-const dummyData = require('./dummy-data')
-
 function exportAllGroups(state) {
   const data = utils.formatAllGroupsForExport(state.bazzGroups)
   const filename = state.dialog.inputValue !== '' ?
@@ -20,7 +18,7 @@ function exportSingleGroup(state, { groupId }) {
 }
 
 function importTabs(state, tabs, send, done) {
-  chrome.tabs.query({ lastFocusedWindow: true }, returnTabs)
+  browser.tabs(returnTabs)
   // Callback for chrome query
   function returnTabs(data) {
     let nonLocalTabs = data.map((openTab, index) => {
@@ -45,34 +43,12 @@ function importTabs(state, tabs, send, done) {
     }
   }
 }
-
-function importFakeTabs(state, openTabs, send, done) {
-  let nonLocalTabs = dummyData.openTabs.map((openTab, index) => {
-    if (openTab.url.indexOf('chrome://') === -1) {
-      return {
-        'url': openTab.url,
-        'favIconUrl': openTab.favIconUrl,
-        'title': openTab.title,
-        'hostname': openTab.url.split('://')[1].split('/')[0]
-      }
-    } else {
-      return null
-    }
-  })
-  nonLocalTabs = nonLocalTabs.filter(n => n)
-  if (nonLocalTabs.length !== state.openTabs.length) {
-    send('setTabs', nonLocalTabs, done)
-  } else {
-    return false
-  }
-}
-// TODO: get tabs from chrome and store in the state
+function loadStorage(){}
 
 const effects = {
   exportAllGroups,
   exportSingleGroup,
   importTabs
-  // importFakeTabs
 }
 
 module.exports = effects

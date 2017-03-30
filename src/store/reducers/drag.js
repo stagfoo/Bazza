@@ -1,8 +1,10 @@
+const browser = require('utils/chrome')
+
 function updateDragged(state, draggedItem) {
   const newState = state
   const length = 35
   if (draggedItem.title.length > length) {
-    draggedItem.title = draggedItem.title.substring(0, length)+'...'
+    draggedItem.title = draggedItem.title.substring(0, length) + '...'
   }
   newState.draggedItem = draggedItem
   return newState
@@ -23,6 +25,7 @@ function updateMarkDropped(state) {
       }
     }
   }
+  browser.set(newState, () => console.log('saved state'))
   return newState
 }
 function updateFocusedGroup(state, groupId) {

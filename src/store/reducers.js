@@ -1,3 +1,5 @@
+const browser = require('utils/chrome')
+
 // TODO:
 // - Move back out to individual reducer directories/files. Just importing is not working for now, need to create a proper combineReducers util function
 // - Make newState immutable in reducers (use Object.assign...?)
@@ -14,18 +16,21 @@ function updateAlert(state, { type, message }) {
 function updateGroupTitle(state, { groupId, title }) {
   const newState = state
   newState.bazzGroups[groupId].title = title
+  browser.set(newState)
   return newState
 }
 
 function removeGroup(state, { groupId }) {
   const newState = state
   newState.bazzGroups.splice(groupId, 1)
+  browser.set(newState)
   return newState
 }
 
 function addNewGroup(state) {
   const newState = state
   newState.bazzGroups.push({ title: 'Enter group title', marks: [] })
+  browser.set(newState)
   return newState
 }
 
@@ -38,6 +43,7 @@ function updateMarkTitle(state, { id, groupId, title }) {
 function removeMark(state, { id, groupId }) {
   const newState = state
   newState.bazzGroups[groupId].marks.splice(id, 1)
+  browser.set(newState)
   return newState
 }
 
@@ -45,6 +51,7 @@ function removeMark(state, { id, groupId }) {
 function applyGroupsImport(state, { data }) {
   const newState = state
   newState.bazzGroups = data
+  browser.set(newState)
   return newState
 }
 
@@ -52,6 +59,7 @@ function applyGroupsImport(state, { data }) {
 function applySingleImport(state, { data }) {
   const newState = state
   newState.bazzGroups.push(data)
+  browser.set(newState)
   return newState
 }
 
@@ -78,6 +86,9 @@ function updateDialogInput(state, { inputValue }) {
   return newState
 }
 
+function loadState(state, { data }) {
+  return data
+}
 // TODO: Create a combine reducers
 
 const reducers = {
