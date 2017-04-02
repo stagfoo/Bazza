@@ -16,9 +16,7 @@ function exportSingleGroup(state, { groupId }) {
                    'bazza-group-export'
   utils.jsonDownloader(data, filename)
 }
-function loadFromStorage() {
-  console.log(browser.loadAll())
-}
+
 
 const effects = {
   exportAllGroups,
