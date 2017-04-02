@@ -17,7 +17,6 @@ function exportSingleGroup(state, { groupId }) {
   utils.jsonDownloader(data, filename)
 }
 
-
 const effects = {
   exportAllGroups,
   exportSingleGroup
