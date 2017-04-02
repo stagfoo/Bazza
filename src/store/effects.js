@@ -20,8 +20,7 @@ function exportSingleGroup(state, { groupId }) {
 
 const effects = {
   exportAllGroups,
-  exportSingleGroup,
-  loadFromStorage
+  exportSingleGroup
 }
 
 module.exports = effects
