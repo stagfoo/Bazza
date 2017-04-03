@@ -45,6 +45,7 @@ function updateFocusedGroup(state, groupId) {
 //   newState.focusedGroup = ''
 //   return newState
 // }
+
 const drag = {
   updateDragged,
   updateFocusedGroup,
