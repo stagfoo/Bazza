@@ -23,7 +23,11 @@ function fromBrowserTabs(send, done) {
 
 function fromStorageAll(send, done) {
   browser.loadAll((data) => {
-    send('loadState', data, done)
+    if (data.bazzGroups) {
+      send('loadState', data, done)
+    } else {
+      send('defaultState', '', done)
+    }
   })
 }
 

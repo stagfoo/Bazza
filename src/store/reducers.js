@@ -88,11 +88,28 @@ function updateDialogInput(state, { inputValue }) {
 
 function loadState(state, data) {
   const newState = state
-  console.log(data)
   newState.bazzGroups = []
   newState.dialog = {}
   newState.dialog.visible = false
   newState.bazzGroups = data.bazzGroups
+  return newState
+}
+function defaultState(state, data) {
+  const newState = {
+    bazzGroups: [],
+    openTabs: [],
+    dialog: {
+      visible: false,
+      message: '',
+      onConfirm: '',
+      confirmButtonText: '',
+      args: undefined,
+      inputValue: ''
+    },
+    focusedGroup: '',
+    draggedItem: {},
+    tabsLoaded: false
+  }
   return newState
 }
 // TODO: Create a combine reducers
@@ -115,7 +132,8 @@ const reducers = {
   updateFocusedGroup,
   updateMarkLocation,
   tabsLoaded,
-  loadState
+  loadState,
+  defaultState
 }
 
 module.exports = reducers

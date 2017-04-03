@@ -1,5 +1,4 @@
 const utils = require('utils/util')
-const browser = require('utils/chrome')
 
 function exportAllGroups(state) {
   const data = utils.formatAllGroupsForExport(state.bazzGroups)
@@ -16,7 +15,6 @@ function exportSingleGroup(state, { groupId }) {
                    'bazza-group-export'
   utils.jsonDownloader(data, filename)
 }
-
 
 const effects = {
   exportAllGroups,
