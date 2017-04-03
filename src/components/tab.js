@@ -1,9 +1,10 @@
 const html = require('choo/html')
 
 const tab = ({ title, favIconUrl, url, hostname }, id, send) => {
+  const truncated = title.substring(0, 35)
   return html`
     <div class="tab" ondragstart=${dragStart} ondragend=${dragEnd} draggable="true">
-     <span>${title}</span>
+     <span>${truncated}...</span>
     </div>`
   function dragStart(e) {
     send('updateDragged', { title, favIconUrl, url, hostname })

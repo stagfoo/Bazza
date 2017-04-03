@@ -5,7 +5,7 @@ const navigation = ({ bazzGroups }, send) => {
 
   return html`
     <nav>
-    <h1>Bazza</h1>
+      <h2>Bazza: a mate for your tabs</h2>
       <div className="main-icons">
       <div>
         <button onclick=${onClickAddGroup}>

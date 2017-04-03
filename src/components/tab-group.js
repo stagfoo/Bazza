@@ -28,7 +28,6 @@ compCss.add('', `
      height:100vh;
      text-align:center;
      overflow:hidden;
-     background:${sv.grey}
 `)
 
 module.exports = tabGroup

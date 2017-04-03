@@ -7,6 +7,10 @@ function styles(sheet, sv) {
     padding:0px;
     font-size:10px;
     font-family: "Noto Sans", "Noto Sans CJK JP", sans-serif;
+    color:${sv.textColor};
+  `)
+  sheet.add('i:before', `
+    color:${sv.textColor};
   `)
   sheet.add('button,h3', `
   font-weight:200;
@@ -20,7 +24,7 @@ function styles(sheet, sv) {
   sheet.add('h1', `
     font-weight:100;
     font-size:4em;
-    color:${sv.blue};
+    color:${sv.textColor};
     font-weight:100;
     padding:0.5em;
     display:inline-block;
@@ -28,7 +32,7 @@ function styles(sheet, sv) {
   `)
   sheet.add('h2', `
     ${sheet.extend('h1').css}
-    font-size:3em;
+    font-size:1.5em;
     padding:0.5em;
     margin:0px;
   `)
@@ -38,6 +42,8 @@ function styles(sheet, sv) {
     border:0px;
     font-size:2em;
     font-weight:100;
+    background:transparent;
+    color:${sv.textColor};
   `)
   sheet.add('input:focus', `
    outline:none;
