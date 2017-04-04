@@ -3,7 +3,7 @@
 // - Make newState immutable in reducers (use Object.assign...?)
 
 const { setTabs, tabsLoaded } = require('store/reducers/tabs')
-const {updateDragged, updateMarkDropped, updateFocusedGroup, updateMarkLocation} = require('store/reducers/drag')
+const {updateDragged, updateMarkDropped, updateFocusedGroup, updateMarkLocation, updateGroupDropped} = require('store/reducers/drag')
 
 // TODO: Can maybe use for a warning/error notification component
 // Called when error in 'components/file-uploader.js'
@@ -97,6 +97,7 @@ const reducers = {
   updateMarkDropped,
   updateFocusedGroup,
   updateMarkLocation,
+  updateGroupDropped,
   tabsLoaded
 }
 

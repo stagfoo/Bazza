@@ -1,9 +1,9 @@
 function updateDragged(state, draggedItem) {
   const newState = state
-  const length = 35
-  if (draggedItem.title.length > length) {
-    draggedItem.title = draggedItem.title.substring(0, length) + '...'
-  }
+  // const length = 35
+  // if (draggedItem.title.length > length) {
+  //   draggedItem.title = draggedItem.title.substring(0, length) + '...'
+  // }
   newState.draggedItem = draggedItem
   return newState
 }
@@ -42,10 +42,28 @@ function updateMarkLocation(state, {id, groupId}) {
   newState.focusedGroup = ''
   return newState
 }
+
+function updateGroupDropped(state) {
+  const newState = state
+  const fromHere = newState.draggedItem.groupId
+  const toHere = newState.focusedGroup
+  const dragged = newState.bazzGroups[fromHere]
+  const displaced = newState.bazzGroups[toHere]
+  newState.bazzGroups[toHere] = dragged
+  newState.bazzGroups[fromHere] = displaced
+  newState.draggedItem = {}
+  newState.focusedGroup = ''
+  return newState
+}
+
+
+
+
 const drag = {
   'updateDragged': updateDragged,
   'updateFocusedGroup': updateFocusedGroup,
   'updateMarkDropped': updateMarkDropped,
-  'updateMarkLocation': updateMarkLocation
+  'updateMarkLocation': updateMarkLocation,
+  updateGroupDropped
 }
 module.exports = drag

@@ -6,7 +6,7 @@ const bazzGroup = ({ title, marks }, groupId, send, focusedGroup) => {
 
   const bazzMarks = map(marks, (bazzMark, index) => mark(bazzMark, index, groupId, send))
   const ghostMark = focusedGroup === groupId ? html`<div class="ghost"></div>` : null
-  return html`<div class="group" ondragenter=${dragEnter}>
+  return html`<div class="group" ondragenter=${dragEnter} ondragstart=${dragStart} ondragend=${dragEnd} draggable="true" >
     <div class="controls">
       <input oninput=${onChangeTitle} value=${title} />
       <button onclick=${onClickDeleteGroup} class="pull-right" ><i class="icon-close" ></i></button>
@@ -39,6 +39,15 @@ const bazzGroup = ({ title, marks }, groupId, send, focusedGroup) => {
   // Drag n Drop
   function dragEnter() {
     send('updateFocusedGroup', groupId)
+  }
+  function dragStart(e) {
+    console.log('wee im being dragged')
+    const type = 'GROUP'
+    send('updateDragged', { groupId, type })
+  }
+  function dragEnd() {
+    send('updateGroupDropped')
+    console.log('aww it ended')
   }
 
 }

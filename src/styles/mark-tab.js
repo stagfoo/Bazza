@@ -16,11 +16,11 @@ function styles(sheet, sv) {
     top:-${buttonDist}px;
     right:-${buttonDist}px;
     border-radius:100%;
-    padding:0px;
     opacity:0;
     overflow:hidden;
     height:10px; width:10px;
-    padding:1em;
+    padding:0em;
+    width:35px; height:35px;
     transition:0.3s ease all;
     z-index:9;
   `)
@@ -30,8 +30,8 @@ function styles(sheet, sv) {
   sheet.add('.mark .close i', `
     float: left;
     position: absolute;
-    top: 0px;
-    left: 0px;
+    top: 5px;
+    left: 5px;
     font-size: 2em;
     color:${sv.red};
     background:#fff
