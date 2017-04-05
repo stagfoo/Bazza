@@ -10,10 +10,11 @@ function styles(sheet, sv) {
     z-index: 0;
     opacity: 0.2;
   `)
+  const buttonDist = 10
   sheet.add('.mark .close', `
     position:absolute;
-    top:-5px;
-    right:-5px;
+    top:-${buttonDist}px;
+    right:-${buttonDist}px;
     border-radius:100%;
     padding:0px;
     opacity:0;
@@ -40,7 +41,7 @@ function styles(sheet, sv) {
     background:transparent;
     width:auto;
     margin-bottom:1em;
-    color:#fff;
+    color:${sv.textColor}
     font-weight:300;
     border:0px;
     text-transform:Capitalize;
@@ -57,11 +58,13 @@ function styles(sheet, sv) {
       overflow: hidden;
       display: block;
       height: 100%;
+      color:${sv.textColor};
   `)
   sheet.add('.mark span', `
       background:transparent;
-      color:#fff;
+      color:${sv.textColor};
       font-weight:700;
+      opacity:0.2;
       border:0px;
       resize: none;
       text-transform:Uppercase;
@@ -78,24 +81,20 @@ function styles(sheet, sv) {
   `)
 
   sheet.add('.mark', `
-    ${sv.gradient0}
     cursor:pointer;
     position:relative;
-    border-radius: 4px;
     min-width:100px;
     max-width:300px;
     height:90px;
-    box-shadow:10px 10px 35px rgba(92, 207, 255, 0.60);
+    background:#fff;
+    color:#000;
     margin:10px;
     padding:1.3em;
     display:inline-block;
     float:left;
     transition: 0.3s ease all;
+    border:1px solid #000;
   `)
-  sheet.add('.mark.gradient1', `${sv.gradient1}`)
-  sheet.add('.mark.gradient2', `${sv.gradient2}`)
-  sheet.add('.mark.gradient3', `${sv.gradient3}`)
-
   sheet.add('.tab', `
     ${sheet.extend('.mark').css}
     background: #fff;
@@ -105,7 +104,6 @@ function styles(sheet, sv) {
     height:20px;
     overflow:hidden;
     clear:both;
-    border:0px;
     font-size:1.5em;
   `)
   sheet.add('.tab span', `
@@ -118,9 +116,7 @@ function styles(sheet, sv) {
   `)
   sheet.add('.ghost', `
     ${sheet.extend('.mark').css}
-    background:rgba(92, 207, 255, 0.5);
-    border-radius:100%;
-    -webkit-filter: blur(20px);
+    background:#f9f9f9;
     height:40px;
     min-width:200px;
     border:0px;
