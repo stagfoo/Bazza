@@ -4,14 +4,15 @@ const mark = require('components/mark')
 
 const bazzGroup = ({ title, marks, collapse }, groupId, send, focusedGroup) => {
   const isOpen = collapse === 1 ? `isCollapsed` : ``
+  const hideIcon = collapse === 1 ? `icon-view` : `icon-hidden`
   const bazzMarks = map(marks, (bazzMark, index) => mark(bazzMark, index, groupId, send))
   const ghostMark = focusedGroup === groupId ? html`<div class="ghost"></div>` : null
   return html`<div class="group ${isOpen}" ondragenter=${dragEnter} ondragstart=${dragStart} ondragend=${dragEnd} draggable="true" >
     <div class="controls">
       <input oninput=${onChangeTitle} value=${title} />
-      <button onclick=${onClickToggleCollapse} class="pull-right" ><i class="icon-no-eye" ></i></button>      
       <button onclick=${onClickDeleteGroup} class="pull-right" ><i class="icon-close" ></i></button>
       <button onclick=${onClickExportGroup} class="pull-right" ><i class="icon-group" ></i></button>
+      <button onclick=${onClickToggleCollapse} class="pull-right" ><i class="${hideIcon}" ></i></button>            
     </div>
       <div class="marks" >
         ${bazzMarks}

@@ -9,7 +9,7 @@ const navigation = ({ bazzGroups }, send) => {
       <div className="main-icons">
       <div>
         <button onclick=${onClickAddGroup}>
-          <i class="icon-add"></i>
+          <i class="icon-plus"></i>
         </button>
       </div>
         <div>
