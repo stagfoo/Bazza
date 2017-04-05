@@ -28,6 +28,13 @@ function addNewGroup(state) {
   newState.bazzGroups.push({ title: 'Enter group title', marks: [] })
   return newState
 }
+function toggleCollapse(state, { groupId }) {
+  if (state.bazzGroups[groupId].collapse !== 1) {
+    state.bazzGroups[groupId].collapse = 1
+  } else {
+    state.bazzGroups[groupId].collapse = 0
+  }
+}
 
 function updateMarkTitle(state, { id, groupId, title }) {
   const newState = state
@@ -98,7 +105,8 @@ const reducers = {
   updateFocusedGroup,
   updateMarkLocation,
   updateGroupDropped,
-  tabsLoaded
+  tabsLoaded,
+  toggleCollapse
 }
 
 module.exports = reducers

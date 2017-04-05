@@ -56,9 +56,6 @@ function updateGroupDropped(state) {
   return newState
 }
 
-
-
-
 const drag = {
   'updateDragged': updateDragged,
   'updateFocusedGroup': updateFocusedGroup,
