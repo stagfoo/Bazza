@@ -1,5 +1,4 @@
 const utils = require('utils/util')
-const dummyData = require('./dummy-data')
 
 function exportAllGroups(state) {
   const data = utils.formatAllGroupsForExport(state.bazzGroups)
@@ -17,38 +16,9 @@ function exportSingleGroup(state, { groupId }) {
   utils.jsonDownloader(data, filename)
 }
 
-function importTabs(state, tabs, send, done) {
-  chrome.tabs.query({ lastFocusedWindow: true }, returnTabs)
-  // Callback for chrome query
-  function returnTabs(data) {
-    let nonLocalTabs = data.map((openTab, index) => {
-      if (openTab.url.indexOf('chrome://') === -1) {
-        console.log(openTab)
-        return {
-          'url': openTab.url,
-          'favIconUrl': openTab.favIconUrl,
-          'title': openTab.title,
-          'hostname': openTab.url.split('://')[1].split('/')[0]
-        }
-      } else {
-        return null
-      }
-    })
-    nonLocalTabs = nonLocalTabs.filter(n => n)
-    if (nonLocalTabs.length !== state.openTabs.length) {
-      send('setTabs', nonLocalTabs, done)
-      send('tabsLoaded', true, done)
-    } else {
-      return false
-    }
-  }
-}
-
 const effects = {
   exportAllGroups,
-  exportSingleGroup,
-  importTabs
-  // importFakeTabs
+  exportSingleGroup
 }
 
 module.exports = effects

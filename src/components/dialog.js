@@ -48,7 +48,8 @@ compCss.add('input',
 
 const dialog = ({ dialog }, send) => {
   const styles = compCss.render('return').css
-  const element = dialog.visible ?
+  const visible = dialog ? dialog.visible : false
+  const element = visible ?
     html`
       <div class="modal is-active ${compCss.id}">
         <style>
