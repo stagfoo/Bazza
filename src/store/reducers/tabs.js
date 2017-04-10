@@ -3,10 +3,5 @@ function setTabs(state, data) {
   newState.openTabs = data
   return newState
 }
-function tabsLoaded(state, data) {
-  const newState = state
-  newState.tabsLoaded = data
-  return newState
-}
 
-module.exports = {setTabs, tabsLoaded}
+module.exports = {setTabs}

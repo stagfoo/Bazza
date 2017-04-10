@@ -1,7 +1,6 @@
 const tabGroup = require('components/tab-group')
 
 const tabGroups = ({openTabs}, send) => {
-  send('importTabs')
   // check not set
   return [
     tabGroup({

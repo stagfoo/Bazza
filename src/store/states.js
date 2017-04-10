@@ -1,4 +1,3 @@
-const dummyData = require('store/dummy-data')
 
 const states = {
   bazzGroups: [],

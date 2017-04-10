@@ -4,13 +4,15 @@ const router = require('store/router')
 const states = require('store/states')
 const reducers = require('store/reducers')
 const effects = require('store/effects')
+const subscriptions = require('store/subscriptions')
 const renderCss = require('styles/render')
 
 // App Attributes
 app.model({
-  state: states,
-  reducers: reducers,
-  effects: effects
+  states,
+  reducers,
+  effects,
+  subscriptions
 })
 
 if (process.env.NODE_ENV !== 'production') {
