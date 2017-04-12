@@ -11,8 +11,7 @@ const mark = ({ title, favIconUrl, url, hostname, gradient }, id, groupId, send)
     </div>`
 
   function onClickDelete() {
-    const message = `Delete ${title}?`
-    send('openDialog', { onConfirm: 'removeMark', message, id, groupId })
+    send('removeMark', { id, groupId })
   }
 
   function onChangeTitle(event) {

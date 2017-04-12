@@ -2,10 +2,6 @@ const browser = require('utils/chrome')
 
 function updateDragged(state, draggedItem) {
   const newState = state
-  // const length = 35
-  // if (draggedItem.title.length > length) {
-  //   draggedItem.title = draggedItem.title.substring(0, length) + '...'
-  // }
   newState.draggedItem = draggedItem
   return newState
 }
@@ -34,18 +30,17 @@ function updateFocusedGroup(state, groupId) {
   return newState
 }
 
-
-// BUG - Allow dragging inside groups
-function updateMarkLocation(state, {id, groupId}) {
-  const newState = state
-  const draggedItem = newState.draggedItem
-  const locationMark = newState.bazzGroups[groupId].marks[id]
-  newState.bazzGroups[draggedItem.groupId].marks.splice(draggedItem.id, 1)
-  newState.bazzGroups[groupId].marks.splice(id, 0, draggedItem)
-  newState.draggedItem = {}
-  newState.focusedGroup = ''
-  return newState
-}
+// // BUG - Allow dragging inside groups
+// function updateMarkLocation(state, {id, groupId}) {
+//   const newState = state
+//   const draggedItem = newState.draggedItem
+//   const locationMark = newState.bazzGroups[groupId].marks[id]
+//   newState.bazzGroups[draggedItem.groupId].marks.splice(draggedItem.id, 1)
+//   newState.bazzGroups[groupId].marks.splice(id, 0, draggedItem)
+//   newState.draggedItem = {}
+//   newState.focusedGroup = ''
+//   return newState
+// }
 
 function updateGroupDropped(state) {
   const newState = state
@@ -60,22 +55,9 @@ function updateGroupDropped(state) {
   return newState
 }
 
-// TODO - Allow dragging inside groups
-// function updateMarkLocation(state, {id, groupId}) {
-//   const newState = state
-//   const draggedItem = newState.draggedItem
-//   const locationMark = newState.bazzGroups[groupId].marks[id]
-//   newState.bazzGroups[draggedItem.groupId].marks.splice(draggedItem.id, 1)
-//   newState.bazzGroups[groupId].marks.splice(id, 0, draggedItem)
-//   newState.draggedItem = {}
-//   newState.focusedGroup = ''
-//   return newState
-// }
-
 const drag = {
   updateDragged,
   updateFocusedGroup,
-  updateMarkLocation,
   updateMarkDropped,
   updateGroupDropped
 }
