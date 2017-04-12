@@ -11,8 +11,7 @@ const mark = ({ title, favIconUrl, url, hostname, gradient }, id, groupId, send)
     </div>`
 
   function onClickDelete() {
-    const message = `Delete ${title}?`
-    send('openDialog', { onConfirm: 'removeMark', message, id, groupId })
+    send('removeMark', { id, groupId })
   }
 
   function onChangeTitle(event) {
@@ -20,7 +19,8 @@ const mark = ({ title, favIconUrl, url, hostname, gradient }, id, groupId, send)
     send('updateMarkTitle', { title, id, groupId })
   }
   function dragStart(e) {
-    send('updateDragged', { title, favIconUrl, url, id, groupId, hostname, gradient })
+    const type = 'MARK'
+    send('updateDragged', { title, favIconUrl, url, id, groupId, hostname, gradient, type })
   }
   function dragEnd() {
     send('updateMarkDropped')

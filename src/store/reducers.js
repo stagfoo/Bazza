@@ -4,8 +4,8 @@ const browser = require('utils/chrome')
 // - Move back out to individual reducer directories/files. Just importing is not working for now, need to create a proper combineReducers util function
 // - Make newState immutable in reducers (use Object.assign...?)
 
-const { setTabs, tabsLoaded } = require('store/reducers/tabs')
-const {updateDragged, updateMarkDropped, updateFocusedGroup, updateMarkLocation} = require('store/reducers/drag')
+const { setTabs } = require('store/reducers/tabs')
+const {updateDragged, updateMarkDropped, updateFocusedGroup, updateMarkLocation, updateGroupDropped} = require('store/reducers/drag')
 
 // TODO: Can maybe use for a warning/error notification component
 // Called when error in 'components/file-uploader.js'
@@ -32,6 +32,13 @@ function addNewGroup(state) {
   newState.bazzGroups.push({ title: 'Enter group title', marks: [] })
   browser.set(newState)
   return newState
+}
+function toggleCollapse(state, { groupId }) {
+  if (state.bazzGroups[groupId].collapse !== 1) {
+    state.bazzGroups[groupId].collapse = 1
+  } else {
+    state.bazzGroups[groupId].collapse = 0
+  }
 }
 
 function updateMarkTitle(state, { id, groupId, title }) {
@@ -131,7 +138,8 @@ const reducers = {
   updateMarkDropped,
   updateFocusedGroup,
   updateMarkLocation,
-  tabsLoaded,
+  updateGroupDropped,
+  toggleCollapse,
   loadState,
   defaultState
 }

@@ -2,10 +2,6 @@ const browser = require('utils/chrome')
 
 function updateDragged(state, draggedItem) {
   const newState = state
-  const length = 35
-  if (draggedItem.title.length > length) {
-    draggedItem.title = draggedItem.title.substring(0, length) + '...'
-  }
   newState.draggedItem = draggedItem
   return newState
 }
@@ -34,7 +30,7 @@ function updateFocusedGroup(state, groupId) {
   return newState
 }
 
-// TODO - Allow dragging inside groups
+// // BUG - Allow dragging inside groups
 // function updateMarkLocation(state, {id, groupId}) {
 //   const newState = state
 //   const draggedItem = newState.draggedItem
@@ -46,9 +42,23 @@ function updateFocusedGroup(state, groupId) {
 //   return newState
 // }
 
+function updateGroupDropped(state) {
+  const newState = state
+  const fromHere = newState.draggedItem.groupId
+  const toHere = newState.focusedGroup
+  const dragged = newState.bazzGroups[fromHere]
+  const displaced = newState.bazzGroups[toHere]
+  newState.bazzGroups[toHere] = dragged
+  newState.bazzGroups[fromHere] = displaced
+  newState.draggedItem = {}
+  newState.focusedGroup = ''
+  return newState
+}
+
 const drag = {
   updateDragged,
   updateFocusedGroup,
-  updateMarkDropped
+  updateMarkDropped,
+  updateGroupDropped
 }
 module.exports = drag

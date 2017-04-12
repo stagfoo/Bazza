@@ -2,15 +2,17 @@ const html = require('choo/html')
 const map = require('lodash.map')
 const mark = require('components/mark')
 
-const bazzGroup = ({ title, marks }, groupId, send, focusedGroup) => {
-
+const bazzGroup = ({ title, marks, collapse }, groupId, send, focusedGroup) => {
+  const isOpen = collapse === 1 ? `isCollapsed` : ``
+  const hideIcon = collapse === 1 ? `icon-view` : `icon-hidden`
   const bazzMarks = map(marks, (bazzMark, index) => mark(bazzMark, index, groupId, send))
   const ghostMark = focusedGroup === groupId ? html`<div class="ghost"></div>` : null
-  return html`<div class="group" ondragenter=${dragEnter}>
+  return html`<div class="group ${isOpen}" ondragenter=${dragEnter} ondragstart=${dragStart} ondragend=${dragEnd} draggable="true" >
     <div class="controls">
       <input oninput=${onChangeTitle} value=${title} />
       <button onclick=${onClickDeleteGroup} class="pull-right" ><i class="icon-close" ></i></button>
       <button onclick=${onClickExportGroup} class="pull-right" ><i class="icon-group" ></i></button>
+      <button onclick=${onClickToggleCollapse} class="pull-right" ><i class="${hideIcon}" ></i></button>            
     </div>
       <div class="marks" >
         ${bazzMarks}
@@ -22,6 +24,9 @@ const bazzGroup = ({ title, marks }, groupId, send, focusedGroup) => {
   function onChangeTitle(event) {
     const title = event.target.value
     send('updateGroupTitle', { groupId, title })
+  }
+  function onClickToggleCollapse() {
+    send('toggleCollapse', { groupId })
   }
 
   function onClickDeleteGroup() {
@@ -39,6 +44,13 @@ const bazzGroup = ({ title, marks }, groupId, send, focusedGroup) => {
   // Drag n Drop
   function dragEnter() {
     send('updateFocusedGroup', groupId)
+  }
+  function dragStart(e) {
+    const type = 'GROUP'
+    send('updateDragged', { groupId, type })
+  }
+  function dragEnd() {
+    send('updateGroupDropped')
   }
 
 }

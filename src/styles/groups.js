@@ -42,6 +42,7 @@ function styles(sheet, sv) {
     clear:both;
     padding-bottom:4em;
     padding-top:1em;
+    transition: 0.3s all ease;
   `)
   sheet.add('.group input', `
     font-size:3em;
