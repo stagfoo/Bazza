@@ -19,7 +19,8 @@ const server =
   new WebpackDevServer(compiler, {
     hot: true,
     contentBase: path.join(__dirname, '../build'),
-    headers: { 'Access-Control-Allow-Origin': '*' }
+    headers: { 'Access-Control-Allow-Origin': '*' },
+    stats: { colors: true }
   })
 
 server.listen('8080')
