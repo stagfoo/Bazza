@@ -4,4 +4,6 @@ function setTabs(state, data) {
   return newState
 }
 
-module.exports = {setTabs}
+module.exports = {
+  setTabs
+}

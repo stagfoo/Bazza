@@ -31,4 +31,7 @@ function fromStorageAll(send, done) {
   })
 }
 
-module.exports = { fromBrowserTabs, fromStorageAll }
+module.exports = {
+  fromBrowserTabs,
+  fromStorageAll
+}

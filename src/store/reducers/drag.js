@@ -5,10 +5,10 @@ function updateDragged(state, draggedItem) {
   newState.draggedItem = draggedItem
   return newState
 }
+
 function updateMarkDropped(state) {
   const newState = state
   const draggedItem = state.draggedItem
-  draggedItem.gradient = Math.floor(Math.random() * 4)
   const focusedGroup = state.focusedGroup
   const groupId = draggedItem.groupId
   if (newState.bazzGroups[focusedGroup]) {
@@ -24,6 +24,7 @@ function updateMarkDropped(state) {
   browser.set(newState, () => console.log('saved state'))
   return newState
 }
+
 function updateFocusedGroup(state, groupId) {
   const newState = state
   newState.focusedGroup = groupId
@@ -55,10 +56,9 @@ function updateGroupDropped(state) {
   return newState
 }
 
-const drag = {
+module.exports = {
   updateDragged,
   updateFocusedGroup,
   updateMarkDropped,
   updateGroupDropped
 }
-module.exports = drag
