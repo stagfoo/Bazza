@@ -114,7 +114,7 @@ function defaultState(state, data) {
   return newState
 }
 
-const groupReducers = {
+module.exports = {
   updateGroupTitle,
   removeGroup,
   addNewGroup,
@@ -130,5 +130,3 @@ const groupReducers = {
   loadState,
   defaultState
 }
-
-module.exports = groupReducers
