@@ -1,6 +1,7 @@
 const browser = require('utils/chrome')
 
 function updateDragged(state, draggedItem) {
+  console.log(draggedItem)
   const newState = state
   newState.draggedItem = draggedItem
   return newState
@@ -11,7 +12,8 @@ function updateMarkDropped(state) {
   const draggedItem = state.draggedItem
   const focusedGroup = state.focusedGroup
   const groupId = draggedItem.groupId
-  if (newState.bazzGroups[focusedGroup]) {
+  console.log(draggedItem)
+  if (draggedItem.type !== 'GROUP' && newState.bazzGroups[focusedGroup]) {
     newState.bazzGroups[focusedGroup].marks.push(draggedItem)
     newState.draggedItem = {}
     newState.focusedGroup = ''
