@@ -90,7 +90,7 @@ function styles(sheet, sv) {
     height:90px;
     background:#fff;
     color:#000;
-    margin:10px;
+    margin:5px;
     padding:1.3em;
     display:inline-block;
     float:left;
