@@ -44,6 +44,14 @@ function styles(sheet, sv) {
     padding-top:1em;
     transition: 0.3s all ease;
   `)
+  sheet.add(
+    `.group .icon-garbage:hover,
+    .group .icon-hide:hover,
+    .group .icon-show:hover,
+    .group .icon-layers-1:hover`
+    , `
+    opacity:0.5;
+  `)
   sheet.add('.group input', `
     font-size:3em;
     margin:0em 0.5em;

@@ -84,7 +84,9 @@ function styles(sheet, sv) {
     cursor:pointer;
     position:relative;
     min-width:100px;
-    max-width:300px;
+    width:235px;
+    max-width:235px;
+
     height:90px;
     background:#fff;
     color:#000;
@@ -101,6 +103,7 @@ function styles(sheet, sv) {
     margin: 10px 15px;
     padding: 1.3em;
     width: 100%;
+    max-width:300px;
     height:20px;
     overflow:hidden;
     clear:both;
