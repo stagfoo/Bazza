@@ -10,10 +10,10 @@ const bazzGroup = ({ title, marks, collapse }, groupId, send, focusedGroup) => {
   return html`<div class="group ${isOpen}" ondragenter=${dragEnter}  >
     <div class="controls">
       <input oninput=${onChangeTitle} value=${title} />
-      <button onclick=${onClickDeleteGroup} class="pull-right" ><i class="icon-garbage" ></i></button>
-      <button onclick=${onClickExportGroup} class="pull-right" ><i class="icon-layers" ></i></button>
-      <button onclick=${onClickToggleCollapse} class="pull-right" ><i class="${hideIcon}" ></i></button>
-      <button ondragstart=${dragStart} class="pull-right" ondragend=${dragEnd} draggable="true" ><i class="icon-more-2"></i></button>
+      <button title="Delete Group" onclick=${onClickDeleteGroup} class="pull-right" ><i class="icon-garbage" ></i></button>
+      <button title="Export Only this group" onclick=${onClickExportGroup} class="pull-right" ><i class="icon-layers-1" ></i></button>
+      <button title="Collapse Group" onclick=${onClickToggleCollapse} class="pull-right" ><i class="${hideIcon}" ></i></button>
+      <button title="Move Group" ondragstart=${dragStart} class="pull-right" ondragend=${dragEnd} draggable="true" ><i class="icon-more-2"></i></button>
     </div>
       <div class="marks" >
         ${bazzMarks}

@@ -17,6 +17,7 @@ function styles(sheet, sv) {
   font-family: "Noto Sans", "Noto Sans CJK JP", sans-serif;
   border:0px;
   background:none;
+  outline:none;
 `)
   sheet.add('button i', `
   font-size:2em;
@@ -88,6 +89,7 @@ function styles(sheet, sv) {
     /* Better Font Rendering =========== */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+     cursor:pointer
     }
 
 .icon-add-1:before {
@@ -1231,6 +1233,8 @@ function styles(sheet, sv) {
 content: "\\ea7b";
 }
 `)
-
+  sheet.add('i.icon-more-2:before', `
+    cursor:move
+  `)
 }
 module.exports = styles

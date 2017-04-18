@@ -9,14 +9,14 @@ const navigation = ({ bazzGroups }, send) => {
       <div className="main-icons">
       <div>
         <button onclick=${onClickAddGroup}>
-          <i class="icon-plus"></i>
+          <i title="Add New Group" class="icon-plus"></i>
         </button>
       </div>
         <div>
-          <button id="export-all" onclick=${onClickExportAll}><i class="icon-database" ></i></button>
+          <button title="Export All Groups" id="export-all" onclick=${onClickExportAll}><i class="icon-layers" ></i></button>
       </div>
         <div>
-          <i id="import" class="icon-folder-files">${fileUploader(send)}</i>
+          <i title="Import Groups" id="import" class="icon-upload">${fileUploader(send)}</i>
         </div>
       </div>
 

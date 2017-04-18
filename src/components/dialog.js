@@ -40,6 +40,16 @@ compCss.add(
   'small', `
     font-size:1em;
 `)
+compCss.add(
+  'i', `
+    font-size:3em;
+`)
+compCss.add(
+  'button', `
+    overflow:hidden;
+    height:3.1em;
+    vertical-align:bottom;
+`)
 compCss.add('input',
   `text-align:center;
   border-bottom:2px solid rgba(0,0,0,1);
@@ -58,12 +68,12 @@ const dialog = ({ dialog }, send) => {
         <div class="modal-background" onclick=${onClickCancel}></div>
         <div class="modal-card card">
           <section class="modal-card-body">
-            ${dialogInput()}          
+            ${dialogInput()}
             <h3>${dialog.message}</h3>
           </section>
           <footer class="modal-card-foot">
-            <button class="button is-success" onclick=${onClickConfirm}><i class="icon-tick"></i></button>
-            <button class="button" onclick=${onClickCancel}><i class="icon-close"></i></button>
+            <button class="button is-success" onclick=${onClickConfirm}><i class="icon-success"></i></button>
+            <button class="button" onclick=${onClickCancel}><i class="icon-error"></i></button>
           </footer>
         </div>
       </div>

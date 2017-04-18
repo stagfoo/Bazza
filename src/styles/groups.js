@@ -25,7 +25,7 @@ function styles(sheet, sv) {
   `)
   sheet.add('#import', `
     position:relative;
-    width:45px;
+    width:28px;
     overflow:hidden;
     float:right;
     font-size:2.5em;
@@ -42,11 +42,20 @@ function styles(sheet, sv) {
     clear:both;
     padding-bottom:4em;
     padding-top:1em;
+    padding-left:1em;
     transition: 0.3s all ease;
+  `)
+  sheet.add(
+    `.group .icon-garbage:hover,
+    .group .icon-hide:hover,
+    .group .icon-show:hover,
+    .group .icon-layers-1:hover`
+    , `
+    opacity:0.5;
   `)
   sheet.add('.group input', `
     font-size:3em;
-    margin:0em 0.5em;
+    margin:0px 5px;
   `)
   sheet.add('.group .marks', `
     display:inline-block;
@@ -55,6 +64,9 @@ function styles(sheet, sv) {
   sheet.add('.group .controls', `
     width:100%;
     clear:both;
+    margin-bottom:10px;
   `)
+
+
 }
 module.exports = styles
