@@ -25,7 +25,7 @@ function styles(sheet, sv) {
   `)
   sheet.add('#import', `
     position:relative;
-    width:45px;
+    width:28px;
     overflow:hidden;
     float:right;
     font-size:2.5em;
@@ -56,5 +56,7 @@ function styles(sheet, sv) {
     width:100%;
     clear:both;
   `)
+
+
 }
 module.exports = styles

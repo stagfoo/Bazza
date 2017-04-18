@@ -11,7 +11,7 @@ const bazzGroup = ({ title, marks, collapse }, groupId, send, focusedGroup) => {
     <div class="controls">
       <input oninput=${onChangeTitle} value=${title} />
       <button onclick=${onClickDeleteGroup} class="pull-right" ><i class="icon-garbage" ></i></button>
-      <button onclick=${onClickExportGroup} class="pull-right" ><i class="icon-layers" ></i></button>
+      <button onclick=${onClickExportGroup} class="pull-right" ><i class="icon-layers-1" ></i></button>
       <button onclick=${onClickToggleCollapse} class="pull-right" ><i class="${hideIcon}" ></i></button>
       <button ondragstart=${dragStart} class="pull-right" ondragend=${dragEnd} draggable="true" ><i class="icon-more-2"></i></button>
     </div>

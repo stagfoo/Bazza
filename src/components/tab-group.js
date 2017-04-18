@@ -10,8 +10,8 @@ const tabGroup = ({title, openTabs}, send) => {
   return html`
     <aside class="group ${compCss.id}">
     <div class="controls">
-      <h2>${title}</h2>
-      <button onclick=${reloadTabs}>[Reload Tabs]</button>
+      <h2 class="pull-left" >${title}</h2>
+      <button class="pull-right" onclick=${reloadTabs}><i class="icon-repeat-1"></i></button>
     </div>
       <div class="tabs" >
         ${tabList}
@@ -31,8 +31,12 @@ compCss.add('', `
      width:20%;
      float:right;
      height:100vh;
-     text-align:center;
+     text-align:left;
      overflow:hidden;
+`)
+compCss.add('.controls', `
+    margin:0 1em;
+    width:95%;
 `)
 compCss.add('button', `
     cursor:pointer;

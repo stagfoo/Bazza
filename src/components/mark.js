@@ -7,7 +7,7 @@ const mark = ({ title, favIconUrl, url, hostname, gradient }, id, groupId, send)
           <h3 oninput=${onChangeTitle} >${title}</h3>
           <span>${hostname}</span>
         </a>
-        <button class="close" onclick=${onClickDelete}><i class="icon-close" /></button>
+        <button title="Delete this mark" class="close" onclick=${onClickDelete}><i class="icon-error" /></button>
     </div>`
 
   function onClickDelete() {
