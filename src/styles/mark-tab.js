@@ -84,9 +84,8 @@ function styles(sheet, sv) {
     cursor:pointer;
     position:relative;
     min-width:100px;
-    width:235px;
+    width:14%;
     max-width:235px;
-
     height:90px;
     background:#fff;
     color:#000;
