@@ -37,6 +37,7 @@ function toggleCollapse(state, { groupId }) {
 function updateMarkTitle(state, { id, groupId, title }) {
   const newState = state
   newState.bazzGroups[groupId].marks[id].title = title
+  browser.set(newState)
   return newState
 }
 

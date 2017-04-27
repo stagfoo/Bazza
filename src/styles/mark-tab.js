@@ -37,20 +37,14 @@ function styles(sheet, sv) {
     background:#fff
 
   `)
-  sheet.add('.mark h3', `
-    background:transparent;
-    width:auto;
-    margin-bottom:1em;
-    color:${sv.textColor}
-    font-weight:300;
-    border:0px;
-    text-transform:Capitalize;
-    font-size:1.7em;
-    overflow:hidden;
-    padding-top:0px; margin-top:0px;
-    position:relative;
-    z-index:2;
+
+  sheet.add('.mark .mark-title', `
+    font-size: 1.8em;
+    margin: 0;
+    display: block;
+    width: 100%;
   `)
+
   sheet.add('.mark a', `
       text-decoration:none;
       position:relative;
@@ -60,6 +54,7 @@ function styles(sheet, sv) {
       height: 100%;
       color:${sv.textColor};
   `)
+
   sheet.add('.mark span', `
       background:transparent;
       color:${sv.textColor};
@@ -83,9 +78,8 @@ function styles(sheet, sv) {
   sheet.add('.mark', `
     cursor:pointer;
     position:relative;
-    min-width:100px;
     width:14%;
-    max-width:235px;
+    width:235px;
     height:90px;
     background:#fff;
     color:#000;
