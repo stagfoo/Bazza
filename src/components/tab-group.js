@@ -8,7 +8,7 @@ const tabGroup = ({title, openTabs}, send) => {
   const styles = compCss.render('return').css
   const tabList = map(openTabs, (singleTab, index) => tab(singleTab, index, send))
   return html`
-    <aside class="group ${compCss.id}" onmouseenter=${reloadTabs}>
+    <aside class=" ${compCss.id}" onmouseenter=${reloadTabs}>
     <div class="controls">
       <h2 class="pull-left" >${title}</h2>
       <button class="pull-right" onclick=${reloadTabs}><i class="icon-repeat-1"></i></button>
@@ -28,20 +28,27 @@ const tabGroup = ({title, openTabs}, send) => {
 
 const compCss = new fairybread('return') // eslint-disable-line new-cap
 compCss.add('', `
-     width:20%;
+     width:19vw;
      float:right;
      height:100vh;
      text-align:left;
      overflow:hidden;
      position:fixed;
      right:0px;
+     border-left:1px solid rgba(0,0,0,0.14);
 `)
 compCss.add('.controls', `
-    margin:0 1em;
-    width:95%;
+    width:100%;
+    height:59px;
+    line-height:40px;
+    border-bottom:1px solid rgba(0,0,0,0.14);
+    text-indent:5px;
+
 `)
 compCss.add('button', `
     cursor:pointer;
+    margin-top:1em;
+    margin-right:1em;
 `)
 compCss.add('button:hover', `
     opacity:0.5;

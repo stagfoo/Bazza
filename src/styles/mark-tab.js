@@ -94,14 +94,14 @@ function styles(sheet, sv) {
     display:inline-block;
     float:left;
     transition: 0.3s ease all;
-    border:1px solid #000;
+    border:1px solid rgba(0,0,0,0.20);
   `)
   sheet.add('.tab', `
     ${sheet.extend('.mark').css}
     background: #fff;
     margin: 10px 15px;
     padding: 1.3em;
-    width: 100%;
+    width:15.2vw;
     max-width:300px;
     height:20px;
     overflow:hidden;

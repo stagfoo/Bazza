@@ -1,12 +1,13 @@
 function styles(sheet, sv) {
   sheet.add('.container, nav', `
-    width:80%;
+    width:80.4vw;
     float:left;
     display: block;
   `)
   sheet.add('.main-icons', `
-    padding:1em 0;
+    padding:1em 1.4em;
     float:right;
+
   `)
   sheet.add('.main-icons div', `
     margin:0.5em;
@@ -40,9 +41,8 @@ function styles(sheet, sv) {
     min-height:150px;
     display:block;
     clear:both;
+    margin:1em;
     padding-bottom:4em;
-    padding-top:1em;
-    padding-left:1em;
     transition: 0.3s all ease;
   `)
   sheet.add(
