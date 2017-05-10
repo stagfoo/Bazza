@@ -35,7 +35,11 @@ function styles(sheet, sv) {
     ${sheet.extend('h1').css}
     font-size:1.5em;
     padding:0.5em;
-    margin:0px;
+
+  `)
+  sheet.add('nav h2', `
+    margin-top:0.7em;
+    font-family: 'Cutive Mono', monospace;
   `)
   sheet.add('input', `
     margin:0px;
