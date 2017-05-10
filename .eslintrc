@@ -8,7 +8,14 @@
         "asyncArrow": "ignore"
       }
     ],
-    "padded-blocks": "off"
+    "padded-blocks": "off",
+    "no-debugger": "warn",
+    "no-unused-vars": "warn",
+    "operator-linebreak": "off",
+    "no-multiple-empty-lines": "off"
+  },
+  "globals": {
+    "chrome": true
   }
 }
 
