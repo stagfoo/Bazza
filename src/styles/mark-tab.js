@@ -51,7 +51,7 @@ function styles(sheet, sv) {
       z-index:2;
       overflow: hidden;
       display: block;
-      height: 100%;
+      height: 80%;
       color:${sv.textColor};
   `)
 
